@@ -1,0 +1,1 @@
+Extrémité du canal de communication entre le client et le serveur.

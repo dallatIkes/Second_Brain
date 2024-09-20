@@ -1,0 +1,1 @@
+Affinage d'une [[Méthode]]. Doit toujours avoir la même signature.

@@ -1,0 +1,1 @@
+Protocole de communication (Secure Shell) qui permet d'ouvrir un terminal pour accéder à une machine à distance.

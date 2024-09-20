@@ -1,0 +1,2 @@
+Processus de modification d'une valeur pour une autre qui n'est pas de la [[Cryptographie]].
+- Exemple : encodage en Base64 afin de les manipuler en utilisant l'alphabet ASCII et de "cacher" des informations d'authentification

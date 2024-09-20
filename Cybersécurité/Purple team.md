@@ -1,0 +1,1 @@
+Collaboration entre la [[Red team]] et la [[Blue team]]. Les attaquants doivent accéder au système et vérifier que ça déclenche bien les alarmes côté défense.

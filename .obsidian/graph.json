@@ -1,0 +1,30 @@
+{
+  "collapse-filter": true,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": true,
+  "colorGroups": [
+    {
+      "query": "Godot",
+      "color": {
+        "a": 1,
+        "rgb": 8150230
+      }
+    }
+  ],
+  "collapse-display": true,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": false,
+  "centerStrength": 0.1,
+  "repelStrength": 18.6197000465382,
+  "linkStrength": 0.232285867962392,
+  "linkDistance": 470,
+  "scale": 0.03721700130781741,
+  "close": true
+}

@@ -1,0 +1,2 @@
+Tactiques, techniques et procédures -> tous le mode opératoire de l'attaquant
+L'informaticien est fainéant et utilise toujours les même méthodes ce qui laisse des traces que l'on peut retrouver à l'aide de la [[Pyramid of PAIN]] 

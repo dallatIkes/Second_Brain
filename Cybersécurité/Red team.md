@@ -1,0 +1,3 @@
+- périmètre large
+- trouver le saint graal
+- ne pas se faire repérer

@@ -1,0 +1,1 @@
+Fait qu'une référence sur une classe peut référencer une objet d'une [[Classe]] dérivée.

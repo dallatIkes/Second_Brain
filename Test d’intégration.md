@@ -1,0 +1,1 @@
+test du fonctionne de l’assemblage des composants de l’application

@@ -1,0 +1,3 @@
+Besoin d'attributs sur l'association liant deux [[Classe|classes]] sans être des attributs d'une des deux [[Classe|classes]].
+
+Ex: [[Classe d'association]] location liant les [[Classe|classes]] occupant et chambre composée des attributs Date, nbEnfants, nbAdultes, etc... 

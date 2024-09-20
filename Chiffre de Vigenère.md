@@ -1,0 +1,1 @@
+Algorithme qui utilise une clé qui ca donner le décalage à utiliser pour chaque lettre sur laquelle nous allons appliquer le [[Chiffre de César]].

@@ -1,0 +1,1 @@
+revenir au code assembleur, voir code C pour comprendre le fonctionnement
