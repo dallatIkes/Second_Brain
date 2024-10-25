@@ -1,0 +1,1 @@
+Le [[Diagramme d'état]] sert à modéliser les aspects dynamiques des systèmes. 
