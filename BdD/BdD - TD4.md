@@ -67,4 +67,3 @@ SELECT m FROM N,E  WHERE N.e = E.e GROUP BY m HAVING COUNT(DISTINCT spécialité
 SELECT e, AVG(note) FROM N WHERE m IN (SELECT m FROM M WHERE ens = 'Martin') GROUP BY e;
 ```
 
-

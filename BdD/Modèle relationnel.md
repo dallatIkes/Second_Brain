@@ -412,7 +412,7 @@ GRANT ALL ON E TO scolarité; -- on donne tous les droits
 Faire en sorte que la [[Bases de données|BdD]] soit toujours dans un état cohérent et que chaque utilisateur en ait une vision cohérente.
 #Notion = Transaction (= un groupe d'opérations qu'on veut mener à son terme comme s'il s'agissait d'une operation unique ou ne pas exécuter du tout)
 
-#Exemple Transaction : insertion dans AnciensÉlèves et suppression dans E
+#Exemple Transaction : insertion dans $AnciensÉlèves$ et suppression dans E
 
 ``COMMIT`` : valide les changement
 ``ROLLBACK`` annule les changement
