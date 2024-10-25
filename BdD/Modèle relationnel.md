@@ -301,14 +301,14 @@ En [[SQL]]: pas d'opération de division --> on reformule la requête : 2 façon
 - double imbrication : tout étudiant tel qu'il n'existe pas de module d'au moins 30h auquel cet étudiant n'est pas inscrit
 	```SQL
 	SELECT e FROM E WHERE NOT EXISTS (SELECT * FROM M WHERE durée >= 30 AND m NOT IN (SELECT m FROM N WHERE e = E.e));
-```
+	```
 
 - comparaison de cardinalité : tout étudiant tel que le nombre de modules d'au moins 30h auxquels il est inscrit est égal au nombre total de modules d'au moins 30h
 	```SQL
 	SELECT e FROM N WHERE m in (SELECT m FROM M WHERE durée >= 30) GROUP BY e HAVING COUNT(*) = (SELECT COUNT(*) FROM M WHERE durée >= 30);
--- variante
-SELECT e FROM E WHERE (SELECT COUNT(*) FROM N WHERE e = E.e AND m IN (SELECT m FROM M WHERE durée >= 30)) = (SELECT COUNT(*) FROM M WHERE durée >= 30);
-```
+	-- variante
+	SELECT e FROM E WHERE (SELECT COUNT(*) FROM N WHERE e = E.e AND m IN (SELECT m FROM M WHERE durée >= 30)) = (SELECT COUNT(*) FROM M WHERE durée >= 30);
+	```
 
 ## Fonctions
 
@@ -462,4 +462,153 @@ $\begin{cases} {AB\rightarrow CD} \\ CD\rightarrow E \end{cases} \implies AB \ri
 
 ### Couverture minimale
 
-On peut simplifier $F$ en supprimant les DF redondantes càd celles qui peuvent être déduites à partir d'un [[Ensemble]] minimal $F'$ appelé couverture minimale de $F$
+On peut simplifier $F$ en supprimant les DF redondantes càd celles qui peuvent être déduites à partir d'un [[Ensemble]] minimal $F'$ appelé couverture minimale de $F$.
+
+**Algorithme de calcul d'une couverture minimale**  
+(1) écrire toutes les DF de $F$ sous la forme $X \rightarrow A$ où $X$ est un groupe d'attributs et $A$ un attribut élémentaire    
+Une DF  du type $X\rightarrow A_1A_2...A_n$ est remplacée par $n$ DF $X\rightarrow A_i$  
+(2) supprimer les DF redondantes en utilisant la notion de fermeture transitive d'une [[Ensemble]] d'attributs. Une DF $X\rightarrow A$ est redondante ssi $X^+_{F-\{X\rightarrow A\}}$ contient A  
+(3) réduire les parties gauches des DF restantes. Une DF $AB\rightarrow C$ peut être réduite en $A\rightarrow C$ ssi $A^+_F$ contient C.
+
+#Exercice Soit l'[[Ensemble]] d'attributs $U=\{A,B,C,D,E,G\}$ et l'[[Ensemble]] de DF $F=\{A\rightarrow B, BC\rightarrow D, AB\rightarrow G, D\rightarrow E, AC\rightarrow DE\}$   
+Trouver une couverture minimale de $F$
+#Remarque Il peut exister plusieurs couverture minimales  
+**Étape 1 :** éclatement des parties droites $F=\{A\rightarrow B, BC\rightarrow D, AB\rightarrow G, D\rightarrow E, AC\rightarrow D, AC\rightarrow E\}$
+**Étape 2 :** élimination des DF redondantes
+- $A\rightarrow B$ est-elle redondante? non, $A^+_{F-\{A\rightarrow B\}}=A$ ne contient pas $B$
+- $BC\rightarrow D$ ? non, $BC^+_{F-\{BC\rightarrow D\}}=BC$ ne contient pas $D$
+- $AB\rightarrow G$ ? non, $AB^+_{F-\{AB\rightarrow G\}}=AB$ ne contient pas $G$
+- $D\rightarrow E$ ? non, $D^+_{F-\{D\rightarrow E\}} = D$
+- $AC\rightarrow D$ ? oui, elle est redondante : $AC^+_{F-\{AC\rightarrow D\}}=ACB\underline{D}...$ contient $D$  
+ $F'=F-\{AC\rightarrow D\}$
+- $AC\rightarrow E$ ? oui : $AC_{F'-\{AC\rightarrow E\}}=ACBDG\underline{E}$ contient E  
+$F''=F'-\{AC\rightarrow E\}$  
+$F'' = \{A\rightarrow B, BC\rightarrow D; AB\rightarrow G, D\rightarrow E\}$  
+
+**Étape 3 :** réduction des aprties gauches  
+- $BC\rightarrow D$ ? pas réductible     
+A-t-on $B\rightarrow D$ ? non, $B^+_{F''}=B$  
+A-t-on $C\rightarrow D$ ? non, $C^+_{F''}=C$    
+- $AB\rightarrow G$ ? oui  
+$A\rightarrow G$ ? oui, $A
+
+On a trouvé une couverture minimale $\{A\rightarrow B, BC\rightarrow D, A\rightarrow G, D\rightarrow E\}$
+
+## Formes normales 
+
+permet de qualifier al qualité d'un schéma
+
+- Première forme nomale (1NF):  
+Une relation est en 1NF ssi:
+	- elle possède une clé
+	- chacun de ses attributs est atomique (monovalué) et on n'a pas de groupes répétitifs d'attributs
+
+Soit une relation $r$ avec les attibuts $n°$, $nom$, $langues\_parlées$  
+|$\underline{n°}$|$nom$|$langues\_parlées$|
+|----------------|-----|------------------|
+|1|Dupont|{Anglais, Allemand}|
+|2|Durand|{Russe, Italien, Anglais}|  
+
+Pas une 1NF à cause de l'attribut $langues\_parlées$ 
+|$\underline{n°}$|$nom$|$langue_1$|$langue_2$|$langue_3$|
+|----------------|-----|----------|----------|----------|
+|1|Dupont|Anglais|Allemand|_|
+|2|Durand|Russe|Italien|Anglais|  
+
+Pas une 1NF (groupe répétitif d'attributs)
+
+**Solution :** décomposer le schéma  
+$r_1(\underline{n°}, nom)$   
+$r_2(\underline{n°}, \underline{langue})$  
+|$\underline{n°}$|$nom$|
+|----------------|-----|
+|1|Dupont|
+|2|Durand| 
+
+|$\underline{n°}$|$\underline{langue}$|
+|----------------|-----|
+|1|Anglais|
+|1|Allemand|
+|2|Russe|
+|2|Italien|
+|2|Anglais|
+
+- Deuxième forme normale (2NF)  
+Une relation est en 2NF ssi :
+	- elle est en 1NF
+	- tout attribut n'appartenant pas à une clé ne dépend pas fonctionnellement d'une partie de clé (autrement dit : toute DF entre une clé et un attribut n'appartenant pas à une clé est élémentaire)  
+	
+#Contre-exemple $R(A, B, C, D)$;  $F=\{AB\rightarrow C, A\rightarrow D\}$  
+clé de $R$ : $AB$  
+$R$ n'est pas en 2NF car $D$ n'appartient pas à une clé mais dépend fonctionnelemnt d'une partie de clé ($A$)  
+OU : la FD $AB\rightarrow D$ n'est pas élémentaire (sa partie gauche n'est pas minimale)  
+$AB\rightarrow C$ DFE? oui  
+$AB\rightarrow D$ DFE? non
+
+**Solution :** décomposer le schéma  
+$R_1(\underline{A}, \underline{B}, C)$  
+$R_2(\underline{A}, D)$  
+- Troisième forme normale (3NF)  
+Une relation est en 3NF ssi :
+	- elle est en 2NF
+	- tout attribut n'appartenant pas à une clé ne dépend pas fonctionnellement d'un autre attribut non clé   
+
+	(autrement dit : toute DF entre une clé et un attribut n'appartenant pas à une clé est directe)  
+(autrement dit : une relation où toute DF $X\rightarrow A$ est telle que soit $X$ est une clé, soit $A$ appartient à une clé)
+
+#Contre-exemple $R(A,B,C)$; $F=\{A\rightarrow B, B\rightarrow C\}$  
+#Remarque $R$ est une 2NF (la clé est réduite à 1 attribut)  
+Clé(s) de R : $A$  
+$R$ n'est pas en 3NF  
+**Def 1 :** $C$ n'appartient pas à une clé amis dépend fonctionnellement de $B$ qui n'est pas clé  
+**Def 2 :** la DF $A\rightarrow C$ n'est pas directe   
+**Def 3 :** On a la DF $B\rightarrow C$ où $B$ n'est pas clé et $C$ n'appartient pas à une clé  
+
+**Solution :** on décompose le schéma  
+$R_1(\underline{A}, B)$  
+$R_2(\underline{B}, C)$  
+
+### Forme normale de Boyce-Codd (BCNF)
+Une relation om toute DF a une clé en partie gauche. 
+
+#Remarque plus le degré de normalité d'un schéma est élevé, plus les anomalies de mise à jour sont réduites  
+En pratique, on impose au minimum la 3NF  
+#Remarque BCNF $\implies$ 3NF (mais la réciproque n'est pas vraie)  
+#Exemple illustrant les avantages de la 3NF  
+[[Base de données]] comportant des informations sur des machines et des ateliers. On considère 2 schémas :
+- (1) $Matériel(\underline{num\_M}, type\_M, num\_A, nom\_A, nbre\_A, chef\_A)$  
+les attributs représentent respectivement : le numéro de machine, le type de machine, le numéro de l'atlier, le nom de l'atlier, le nombre de personnes dans l'atelier et le nom du chef d'atelier.
+- (2) $Machine(\underline{num\_M}, type\_M, num\_A)$  et  $Atelier(\underline{num\_A}, nom\_A, nbre\_A, chef\_A)$  
+$F=\{num\_M\rightarrow type\_M, num\_M\rightarrow num\_A, num\_A\rightarrow nom\_A, num\_A\rightarrow nbre\_A, num\_A\rightarrow chef\_A\}$  
+
+Le schéma (1) est en 1NF et en 2NF mais pas en 3NF (par exemple : la DF $num\_M\rightarrow nom\_A$ n'est pas directe)  
+Le schéma (2) est en 3NF (les 2 relations le sont)  
+
+- Aspect redondance  
+Supponsons qu'il y ait 30 ateliers différents et 100 machines en moyenne par atelier  
+Schéma (1): nombre de valeurs d'attribut stockés ?    
+3000 n-uplets $\times$ 6 attributs = 18000 valeurs  
+Schéma (2): nombre de valeurs d'attribut stockés ?  
+Machine : 3000 $\times$ 3 = 9000  et  Atelier : 30 $\times$ 4 = 120  
+Total : 9120 valeurs (On a presque divisé par 2 !)
+
+- Aspect mise-à-jour  
+	- changement du nom d'un chef d'atelier :
+		- 1 modification dans le schéma (2)
+		- 100 modification en moyenne dans le schéma (1)
+	- création d'un nouvel atelier :
+		- insertion d'une n-uplet dans Atelier pour le schéma (2)
+		- possible que si l'atelier possède une machine pour le schéma (1)
+	- suppression d'une machine
+		- on supprime un n-uplet dans Machine pour le schéma (2)
+		- si l'atelier ne possédait que cette machine, on perd les informations sur l'atelier pour le schéma (1)   
+
+### Décomposition sans perte d'information (SPI)
+
+Soit un schéma de relation $R$ qu'on a décomposé en $T=\{R_1, R_2, ..., R_k\}$ et un [[Ensemble]] $F$ de DF. La décomposition est dite <u>SPI sous F</u> ssi $\forall r$ satisfaisant $F$, $r=\Pi_{R_1}(r)\bowtie \Pi_{R_2}(r)\bowtie ... \bowtie \Pi_{R_k}(r)$
+
+#Théorème de décomposition : Soit $R(X,Y,Z)$ un schéma de relation et $r$ une relation de schéma R. Si la DF $X\rightarrow Y$ (ou $X\rightarrow Z$) est valide sur $r$, alors $r=\Pi_{XY}(r)\bowtie \Pi_{XZ}(r)$  
+La "méthode des tableaux" permet de vérifier qu'une décomposition est SPI
+	
+
+
