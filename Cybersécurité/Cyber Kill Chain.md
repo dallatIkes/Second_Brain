@@ -1,5 +1,5 @@
 7 étapes mises en place par l'attaquant
-- Reconnaissance : scan [[Adresse IP|IP]], OSINT (LinkedIn, [hunter.io](https://hunter.io/)) -> savoir qui attaquer
+- Reconnaissance : scan [[Adresse IP|IP]], [[OSINT]] (LinkedIn, [hunter.io](https://hunter.io/)) -> savoir qui attaquer
 - Weaponization : savoir comment attaquer en fonction du matériel
 - Delivery : comment mettre en place l'attaque (brancher une clé USB)
 - Exploitation : exploiter une vulnérabilité

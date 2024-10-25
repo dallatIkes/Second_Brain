@@ -12,6 +12,16 @@ finally{
 }
 ```
 
+```java
+public void setAge(int age) {
+        if (age < 0) {
+            throw new IllegalArgumentException("Age must be greater than zero"); //Throw IllegalArgumentException if age is negative
+        } else {
+            this.age = age;
+            System.out.println("The person's age is: " + this.age);
+        }
+    }
+```
 On peut également écrire nos propres [[Exception|exceptions]] et les faire renvoyer par des [[Méthode|méthodes]] à l'aide du mot clé:
 ```Java
 static void testMethod() throws Exception{ 
@@ -39,6 +49,15 @@ public class ExoCM{
 }
 ```
 
-
+Pour nos [[Test|tests]] on peut vérifier si une [[Exception]] a bien été envoyée en [[Java]]
+```java
+@Test  
+void creditExceptionTest() {  
+    Account a = new Account(0, p);  
+  
+    IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> a.credit(-200));  
+    assertEquals(exception.getMessage(), "The amount credited must be positive");  
+}
+```
 
 
