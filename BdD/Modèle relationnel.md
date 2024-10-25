@@ -302,6 +302,7 @@ En [[SQL]]: pas d'opération de division --> on reformule la requête : 2 façon
 	```SQL
 	SELECT e FROM E WHERE NOT EXISTS (SELECT * FROM M WHERE durée >= 30 AND m NOT IN (SELECT m FROM N WHERE e = E.e));
 ```
+
 - comparaison de cardinalité : tout étudiant tel que le nombre de modules d'au moins 30h auxquels il est inscrit est égal au nombre total de modules d'au moins 30h
 	```SQL
 	SELECT e FROM N WHERE m in (SELECT m FROM M WHERE durée >= 30) GROUP BY e HAVING COUNT(*) = (SELECT COUNT(*) FROM M WHERE durée >= 30);
@@ -429,6 +430,8 @@ SET AUTOCOMMIT = 0;
 
 ## Fermeture transitive et couverture minimale
 
+### Fermeture transitive
+
 Fermeture transitive d'un [[Ensemble]] d'attributs. La fermeture transitive d'un [[Ensemble]] d'attributs $X$, notée $X^+$, représente l'[[Ensemble]] des attributs de $r$ qui peuvent être déduits de $X$ à partir d'une [[Ensemble]] de DF $F$ en appliquant les axiomes d'Armstrong. Ainsi, $Y$ sera inclus dans $X^+$ ssi $X\rightarrow Y$ 
 
 **Algorithme de calcul de $X^+$** 
@@ -454,3 +457,9 @@ deuxième possibilité : le montrer en appliquant les axiomes d'Armstrong
 $B\rightarrow D \implies AB \rightarrow D$ par augmentation
 $\begin{cases} AB\rightarrow C \\ AB \rightarrow D \end{cases} \implies AB \rightarrow CD$ par union
 $\begin{cases} {AB\rightarrow CD} \\ CD\rightarrow E \end{cases} \implies AB \rightarrow E$ par transitivité
+
+#Définition Deux [[Ensemble|ensembles]] de DF sont équivalents s'ils ont la même fermeture transitive
+
+### Couverture minimale
+
+On peut simplifier $F$ en supprimant les DF redondantes càd celles qui peuvent être déduites à partir d'un [[Ensemble]] minimal $F'$ appelé couverture minimale de $F$
