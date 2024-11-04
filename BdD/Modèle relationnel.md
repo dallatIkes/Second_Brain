@@ -608,7 +608,83 @@ Total : 9120 valeurs (On a presque divisé par 2 !)
 Soit un schéma de relation $R$ qu'on a décomposé en $T=\{R_1, R_2, ..., R_k\}$ et un [[Ensemble]] $F$ de DF. La décomposition est dite <u>SPI sous F</u> ssi $\forall r$ satisfaisant $F$, $r=\Pi_{R_1}(r)\bowtie \Pi_{R_2}(r)\bowtie ... \bowtie \Pi_{R_k}(r)$
 
 #Théorème de décomposition : Soit $R(X,Y,Z)$ un schéma de relation et $r$ une relation de schéma R. Si la DF $X\rightarrow Y$ (ou $X\rightarrow Z$) est valide sur $r$, alors $r=\Pi_{XY}(r)\bowtie \Pi_{XZ}(r)$  
-La "méthode des tableaux" permet de vérifier qu'une décomposition est SPI
-	
+La "méthode des tableaux" permet de vérifier qu'une décomposition est SPI (algo en 3 phases)
+- (1) on construit un tableau avec autant de colonnes que d'attributs et autant de lignes que de relations dans le schéma décomposé
+- (2) remplissage initial du tableau à l'intersection de la ligne i et de la colonne j : on met $a_j$ si l'attribut $A_j$ appartient au schéma $R_j$, $b_{ij}$ sinon
+- (3) pour chaque DF $X\rightarrow Y$ de $F$ on cherche des lignes du tableau pour lesquelles les élements correspondant à tous les attributs de $X$ sont égaux. Si on en trouve, on égalise les éléments de ces lignes pour les attributs de Y. 
+	- si au moins un des éléments correspondant à $Y$ est égal à $a_j$, alors tous les autres sont fixés à $a_j$
+	- sinon les élements sont égalisés à $b_{ij}$  
 
+A la fin : si une des lignes est remplie de "a" alors la décomposition est SPI (sinon elle ne l'est pas)
+
+#Exercice Soit le schéma $R(Nom\_F, Adresse\_F, Produit, Prix)$ avec les DF   
+$F=\{Nom\_F\rightarrow Adresse\_F, (Nom\_F, Produit)\rightarrow Prix\}$  
+On considère la décomposition de $R$ en   
+$R_1(Nom\_F, Adresse\_F)$ et $R_2(Nom\_F, Produit, Prix)$ est-elle SPI ?  
+|    |$Nom\_F$|$Adresse\_F$|$Produit$|$Prix$|
+|----|--------|------------|---------|------|
+|$R_1$|$a_1$|$a_2$|$b_{13}$|$b_{14}$|
+|$R_2$|$a_1$|$b_{22}$|$a_3$|$a_4$|
+
+ligne de "a" : la décomposition est SPI
+
+|    |$Nom\_F$|$Adresse\_F$|$Produit$|$Prix$|
+|----|--------|------------|---------|------|
+|$R_1$|$a_1$|$a_2$|$b_{13}$|$b_{14}$|
+|$R_2$|$a_1$|$a_{2}$|$a_3$|$a_4$|
+
+#Exercice $R(Etudiant, Heure, Date)$ et $F=\{(Etudiant, Examen)\xrightarrow{(1)} (Heure, Date), (Etudiant, Heure, Date)\xrightarrow{(2)} Examen\}$  
+Soit la décomposition de $R$ en $R_1(Etudiant, Examen)$ et $R_2(Etudiant, Heure, Date)$ SPI? 
+|    |$Etudiant$|$Examen$|$Heure$|$Date$|
+|----|--------|------------|---------|------|
+|$R_1$|$a_1$|$a_2$|$b_{13}$|$b_{14}$|
+|$R_2$|$a_1$|$b_{22}$|$a_3$|$a_4$|    
+
+DF(1) : on ne peut rien faire  
+DF(2) : on ne peut rien faire    
+Impossible de construire une ligne de "a" : la décomposition n'est pas SPI  
+
+#Exercice $R(Num\_Vol, Date, Porte, Heure, Destination)$ et $F=\{(Num\_Vol, Date)\xrightarrow{(1)} Porte, Num\_Vol\xrightarrow{(2)}(Destination, Heure), (Date, Porte, Heure)\xrightarrow{(3)}Num\_Vol\}$  
+Soit la décomposition en $R_1(Num\_Vol, Destination, Heure)$ et $R_2(Num\_Vol, Porte, Date)$  
+|    |$Num\_Vol$|$Date$|$Porte$|$Heure$|$Dest$|
+|----|----------|------|-------|-------|------|
+|$R_1$|$a_1$|$b_{12}$|$b_{13}$|$a_{4}$|$a_5$|
+|$R_2$|$a_1$|$a_{2}$|$a_3$|$b_{24}$|$b_{25}$|  
+
+ligne de "a" : la décomposition est SPI  
+
+|    |$Num\_Vol$|$Date$|$Porte$|$Heure$|$Dest$|
+|----|----------|------|-------|-------|------|
+|$R_1$|$a_1$|$b_{12}$|$b_{13}$|$a_{4}$|$a_5$|
+|$R_2$|$a_1$|$a_{2}$|$a_3$|$a_{4}$|$a_{5}$|  
+
+### Décomposition préservant les dépendances (SPD)  
+Soit un schéma décomposé $T=\{R_1, \ ...,  \ R_k\}$ et un [[Ensemble]] $F$ de DF  
+**Projection d'un ensemble de DF sur un schéma de relation**  
+$F[z] =$ l'[[Ensemble]] des DF $X\rightarrow Y$ de $\underline{\underline{\underline{F^+}}}$ telles que $XY \subseteq Z$ (fermeture transitive de $F$).  
+On dit que $T$ préserve les DF ssi $F[R_1]\cup...\cup F[R_k]$ est équivalent à $F$, autrement dit, ssi $(\bigcup\limits_i F[R_i])^+=F^+$  
+
+[[BdD - TD5]]
+
+# Exercice 1
+$R(Nom\_F, Adresse\_F, Produit, Prix)$ et $F=\{Nom\_F\rightarrow Adresse\_F, (Nom\_F, Produit)\rightarrow Prix\}$  
+Décomposition : $R_1(Nom\_F, Adresse\_F)$ et $R_2(Nom\_F, Produit, Prix)$ STB ?  
+$F[R_1] = \{Nom\_F\rightarrow Adresse\_F\}$ et $F[R_2] = \{(Nom\_F, Produit)\rightarrow Prix\}$  
+$\bigcup\limits_i F[R_i] = F$ donc $(\bigcup\limits_i F[R_i])^+=F^+$  
+
+# Exercice 2
+$R(Etudiant, Examen, Heure, Date)$ la décomposition est SPD  
+$F=\{(Etudiant, Examen)\rightarrow (Heure, Date), (Etudiant, Heure, Date)\rightarrow Examen\}$   
+Décomposition : $R_1(Etudiant, Examen)$ et $R_2(Etudiant, Heure, Date)$ SPD?  
+$\begin{cases} {F[R_1]=\empty} \\  F[R_2]=\empty\end{cases} \implies (\bigcup\limits_i F[R_i])^+=\empty$  
+la décomposition n'est pas SPD (on a perdu les 2 DF)  
+
+# Exercice 3
+$R(Num\_Vol, Date, Prte, Heure, Dest)$ et $F=\{(Num\_Vol, Date)\xrightarrow{(1)} Porte, Num\_Vol\xrightarrow{(2)} (Dest, Heure), (Date, Porte, Heure)\xrightarrow{(3)} Num\_Vol\}$   
+Décomposition : $R_1(Num\_Vol, Dest, Heure)$ et $R_2(Num\_Vol, Porte, Date)$  
+$F[R_1] = \{Num_Vol\rightarrow (Dest, Heure)\}$ et $F[R_2]=\{Num\_Vol, Date)\rightarrow Porte\}$  
+Il semble qu'on ait perdu la DF (3) : la DF (3) $\notin (\bigcup\limits_i F[R_i])^+$  
+Vérifions-le en calculant $(Date, Porte, Heure)^+$ selon $\bigcup\limits_i F[R_i]$ et en montrant qu'on n'obtient pas $Num\_Vol$  
+$(Date, Porte, Heure)^+_{\bigcup\limits_i F[R_i]} = \{Date, Porte, Heure\}$ ne contient pas $Num\_Vol  
+La décomposition n'est pas SPD
 
