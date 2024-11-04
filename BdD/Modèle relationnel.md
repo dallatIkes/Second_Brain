@@ -664,8 +664,34 @@ Soit un schéma décomposé $T=\{R_1, \ ...,  \ R_k\}$ et un [[Ensemble]] $F$ de
 $F[z] =$ l'[[Ensemble]] des DF $X\rightarrow Y$ de $\underline{\underline{\underline{F^+}}}$ telles que $XY \subseteq Z$ (fermeture transitive de $F$).  
 On dit que $T$ préserve les DF ssi $F[R_1]\cup...\cup F[R_k]$ est équivalent à $F$, autrement dit, ssi $(\bigcup\limits_i F[R_i])^+=F^+$  
 
-[[BdD - TD5]]
+[[BdD - TD6]]
 
 ### Algorithme de décomposition 3NF (SPI et SPD)
-Soit un schéma $R$ et une couverture minimale $F'$ de DF valides sur $R$N
+Soit un schéma $R$ et une couverture minimale $F'$ de DF valides sur $R$  
+Une décomposition 3NF SPI et SPD est construite de la façon suivante :
+- (1) pour chaque DF $X\rightarrow A$ de $F'$, on crée une relation $R_i(\underline{X}, A)$
+- (2) si on a plusieurs DF telles que $X\rightarrow A_1, X\rightarrow A_2, \ ..., \ X\rightarrow A_n$ on fusionne les relations correspondantes en une seule relation $R_j(\underline{X}, A_1, ..., A_n)$  
 
+#Exemple Soit les attributs $F$ : titre d'un film, $G$ : genre d'une film, $S$ : salle de cinéma, $H$ : heure de projection, $T$ : technicien de projection.  
+Soit les DF : $F=\{F\xrightarrow{(1)} G, \ GH\xrightarrow{(2)} F, \ HS\xrightarrow{(3)} F, \ FH\xrightarrow{(4)} T\}$  
+1) Soit la relation universelle $R(F, G, H, S, T)$, Clés de $R$?
+#Remarque $H$ et $S$ n'apparaissent en partie droite d'aucune DF $\implies$ $H$ et $S$ s'appartiennent à toute clé  
+$HS^+=HSFGT \implies HS$ est clé et c'est la seule
+2) $R$ est-elle 
+	- en 1NF : oui  
+	- en 2NF : oui
+		- $HS\rightarrow F$ élémentaire : oui
+		- $HS\rightarrow G$ élémentaire : oui
+		- $HS\rightarrow T$ élémentaire : oui
+	- en 3NF : non
+		$HS\rightarrow F\rightarrow G$ n'est pas directe, il faut décomposer $R$
+3) Proposer une décomposition 3NF de $R$  
+Couverture minimale de $F$ ?
+	- étape 1 : rien à faire
+	- étape 2 : pas de DF redondante
+	- étape 3 : on ne peut réduire aucune partie gauche 
+
+$\rightarrow F$ est une couverture minimale  
+L'algo du cours fournit : $R_1(\underline{F},G), \ R_2(\underline{G}, \underline{H}, F), \ R_3(\underline{H}, \underline{S}, F), \ R_4(\underline{F}, \underline{H}, T)$
+
+[[BdD - TD7]]
