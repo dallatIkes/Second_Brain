@@ -653,10 +653,10 @@ Soit la décomposition en $R_1(Num\_Vol, Destination, Heure)$ et $R_2(Num\_Vol, 
 
 ligne de "a" : la décomposition est SPI  
 
-|    |$Num\_Vol$|$Date$|$Porte$|$Heure$|$Dest$|
-|----|----------|------|-------|-------|------|
-|$R_1$|$a_1$|$b_{12}$|$b_{13}$|$a_{4}$|$a_5$|
-|$R_2$|$a_1$|$a_{2}$|$a_3$|$a_{4}$|$a_{5}$|  
+|       | $Num\_Vol$ | $Date$   | $Porte$  | $Heure$ | $Dest$  |
+| ----- | ---------- | -------- | -------- | ------- | ------- |
+| $R_1$ | $a_1$      | $b_{12}$ | $b_{13}$ | $a_{4}$ | $a_5$   |
+| $R_2$ | $a_1$      | $a_{2}$  | $a_3$    | $a_{4}$ | $a_{5}$ |
 
 ### Décomposition préservant les dépendances (SPD)  
 Soit un schéma décomposé $T=\{R_1, \ ...,  \ R_k\}$ et un [[Ensemble]] $F$ de DF  

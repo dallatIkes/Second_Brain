@@ -1,4 +1,4 @@
-Un [[Thread]] permet l'exécution simultanée de plusieurs processus.
+Un [[Thread]] permet l'exécution simultanée de plusieurs [[Processus]].
 
 [[Java]] est un langage multi-thread où au moment deux [[Thread|threads]] sont actifs : celui de la [[Java Virtual Machine|JVM]] et celui du [[Garbage collector]]. Or en [[Java]], l'[[Héritage]] multiple n'est pas possible, il faut donc implémenter l'[[Interface]] runnable pour hériter de la [[Classe]] [[Thread]].
 

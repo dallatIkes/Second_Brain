@@ -1,0 +1,1 @@
+Une [[Commutation de contexte]] (context switch) en informatique consiste à sauvegarder l'état d'un [[Processus]] ou d'un [[Thread]] pour restaurer à la place celui d'un autre dans le cadre de l'ordonnancement d'un système d'exploitation multitâche.
