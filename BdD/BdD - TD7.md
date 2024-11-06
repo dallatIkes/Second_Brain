@@ -78,5 +78,49 @@ On a $\begin{cases} AD\rightarrow C \ (5) \\ AD\rightarrow D \ (réflexivité) \
 
 # Exercice 6
 
+Soit l'[[Ensemble]] de DF $F=\{AB\xrightarrow{(1)} C, \ C\xrightarrow{(2)}A, \ BC\xrightarrow{(3)} D, ACD\xrightarrow{(4)} B, \ D\xrightarrow{(5)} EG, \ BE\xrightarrow{(6)} C, \ CG\xrightarrow{(7)} BD, \ CE\xrightarrow{(8)} AG\}$ 
+Calculer $BD^+$ en déroulant l'algo de calcul de $X^+$ 
 
+| $X^+_{ancien}$ | DF utilisables ou non encore utilisées | $X^+_{nouveau}$ |
+| -------------- | -------------------------------------- | --------------- |
+| $BD$           | 5                                      | $BDEG$          |
+| $BDEG$         | 6                                      | $BDEGC$         |
+| $BDEQGC$       | 2, 3, 7, 8                             | $BDEGCA$        |
+| $ABCDEG$       | 1, 4                                   | $ABCDEG$        |
+#Rappel Étape 1: éclatement des parties droites
+Étape 2 : supprimer les DF redondantes (Attention : on ne peut plus utiliser celles qu'on a supprimées)
+Étape 3 : réduction des parties gauches
 
+Étape 1 : $F=\{AB\xrightarrow{(1)} C, \ C\xrightarrow{(2)}A, \ BC\xrightarrow{(3)} D, ACD\xrightarrow{(4)} B, \ D\xrightarrow{(5)} E, \ D\xrightarrow{(6)} G, \ BE\xrightarrow{(7)} C, \ CG\xrightarrow{(8)} B, \ CG\xrightarrow{(9)} D, \ CE\xrightarrow{(10)} A, \ CE\xrightarrow{(11)} G\}$ Étape 2: 
+- $AB\rightarrow C$ est-elle redondante? non $AB^+_{F-\{AB\rightarrow C\}} = AB$ ne contient pas $C$
+- $C\rightarrow A \ ?$ Non car $C^+_{F-\{C\rightarrow A\}}=C$ ne contient pas $A$ 
+- $BC\rightarrow D \ ?$ Non car $BC^+_{F-\{BC\rightarrow D\}}=BCA$ ne contient pas $D$
+
+# Exercice 7
+
+Soit l'[[Ensemble]] de DF $F=\{AB\xrightarrow{(1)} C, \ C\xrightarrow{(2)}A, \ BC\xrightarrow{(3)} D, ACD\xrightarrow{(4)} B, \ D\xrightarrow{(5)} EG, \ BE\xrightarrow{(6)} C, \ CG\xrightarrow{(7)} BD, \ CE\xrightarrow{(8)} AG\}$ 
+Calculer une couverture minimale de $F$
+- $ACD\rightarrow B \ ?$ Oui car $ACD^+_{F-\{ACD\rightarrow D\}} = ACDEGBF$ contient $B$
+Posons $F'=F-\{ACD\rightarrow B\}$ 
+- $D\rightarrow E \ ?$ Non car $D^+_{F'-\{D\rightarrow E\}} = DG$ ne contient pas $E$
+- $D\rightarrow G \ ?$ Non car $D^+_{F'-\{D\rightarrow G\}} = DE$ ne contient pas $G$
+- $BE\rightarrow C \ ?$ Non car $BE^+_{F'-\{BE\rightarrow C\}} = BE$ ne contient pas $C$
+- $CG\rightarrow B \ ?$ Non car $CG^+_{F'-\{CG\rightarrow B\}} = CG$ ne contient pas $B$
+- $CG\rightarrow D \ ?$ Oui car $CG^+_{F'-\{CG\rightarrow D\}} = CGAPD$ contient $D$
+Posons $F''=F'-\{CG\rightarrow D\}$ 
+- $CE\rightarrow A \ ?$ Oui car $CE^+_{F''-\{CE\rightarrow A\}} = CEA$ contient $A$
+Posons $F'''=F''-\{CE\rightarrow A\}$ 
+-  $CE\rightarrow G \ ?$ Non car $CE^+_{F'''-\{CE\rightarrow G\}} = CEA$ ne contient pas $G$
+
+Étape 1 : $F'''=\{AB\xrightarrow{(1)} C, \ BC\xrightarrow{(2)} A, \ BC \xrightarrow{(3)} D, \ D\xrightarrow{(4)} E, \ D\xrightarrow{(5)} G, \ BE\xrightarrow{(6)} C, \ CG\xrightarrow{(7)} B, \ CE\xrightarrow{(8)} G\}$ 
+
+Étape 3 :
+Réduction des parties gauches
+
+$BC \longrightarrow D$ : Non : $B \longrightarrow D$ non et $B \longrightarrow D$ non.
+
+$B^+_{\mathcal F'''} = B$ et $C^+_{\mathcal F'''} = CA$
+
+De même pour les autres.
+
+Conclusion : $\mathcal F'''$ est une couverture minimale de $\mathcal F$.

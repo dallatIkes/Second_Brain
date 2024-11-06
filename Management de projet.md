@@ -115,3 +115,64 @@ Méthode pour langer une entreprise en mode [[Méthode agile|agile]]. Production
 $\rightarrow$ tout avis est bon à prendre, surtout les mauvais
 
 Si l'hypothèse n'est pas validée : améliorer/adapter ou **pivoter** (ex: Odeo $\rightarrow$ Twitter) 
+
+---
+
+## KPI - Key Performance Indicator
+
+Mesure de performance par rapport à des objectifs. Le but est d'améliorer la prise de décision. Il faut donc choisir les bon KPI pour prendre les bonnes décisions
+
+**Un bon KPI doit être :**
+- spécifique
+- mesurable
+- atteignable
+- pertinent
+- temporellement défini
+
+**Pièges à éviter :**
+- choisir trop d'indicateurs (~ entre 3 et 5)
+- utiliser des KPI non pertinents 
+- objectifs irréalistes
+- ignorer le contexte externe
+- ne pas réagir aux résultats
+- se focaliser uniquement sur les chiffres
+
+**⚠ UN KPI NE DOIT JAMAIS ÊTRE LIÉ DIRECTEMENT À UNE MESURE DE PERFORMANCE !**
+
+---
+
+## Gestion des risques
+
+Un risque n'est pas un problème. C'est un événement qui risque de se produire (à une certaine probabilité) qui va avoir une certaine conséquence (cette dernière peut être négative comme positive). 
+
+### Identifier les risques
+
+![[Pasted image 20241106084052.png]]
+
+#### Diagramme Ishikawa
+
+![[Pasted image 20241106084344.png]]
+
+Après avoir identifier tous les risques, on les met à plat dans cette matrice
+
+![[Pasted image 20241106084602.png]]
+
+### Étude quantitative
+
+On estime la probabilité de chaque risque ainsi que son impact monétaire. Avec ces données, on peut calculer l'Expected Monetary Value ($EMV \ =\sum\limits_iP_iV_i$)
+### Identifier des actions
+
+**Pour les risques négatifs :**
+- l'éviter
+- le transférer (sous-traiter)
+- diminuer sa probabilité et/ou son impact
+- l'accepter
+
+![[Pasted image 20241106085624.png]]
+
+**Pour les risques positifs :**
+- l'exploiter
+- le partager (ex : opportunité de s'aventurer sur le terrain de l'[[IA]])
+- augmenter sa probabilité et/ou son impact
+- l'accepter
+
