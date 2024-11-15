@@ -504,12 +504,14 @@ Une relation est en 1NF ssi:
 	- chacun de ses attributs est atomique (monovalué) et on n'a pas de groupes répétitifs d'attributs
 
 Soit une relation $r$ avec les attibuts $n°$, $nom$, $langues\_parlées$  
+
 |$\underline{n°}$|$nom$|$langues\_parlées$|
 |----------------|-----|------------------|
 |1|Dupont|{Anglais, Allemand}|
 |2|Durand|{Russe, Italien, Anglais}|  
 
 Pas une 1NF à cause de l'attribut $langues\_parlées$ 
+
 |$\underline{n°}$|$nom$|$langue_1$|$langue_2$|$langue_3$|
 |----------------|-----|----------|----------|----------|
 |1|Dupont|Anglais|Allemand|_|
@@ -621,6 +623,7 @@ A la fin : si une des lignes est remplie de "a" alors la décomposition est SPI 
 $F=\{Nom\_F\rightarrow Adresse\_F, (Nom\_F, Produit)\rightarrow Prix\}$  
 On considère la décomposition de $R$ en   
 $R_1(Nom\_F, Adresse\_F)$ et $R_2(Nom\_F, Produit, Prix)$ est-elle SPI ?  
+
 |    |$Nom\_F$|$Adresse\_F$|$Produit$|$Prix$|
 |----|--------|------------|---------|------|
 |$R_1$|$a_1$|$a_2$|$b_{13}$|$b_{14}$|
@@ -635,10 +638,11 @@ ligne de "a" : la décomposition est SPI
 
 #Exercice $R(Etudiant, Heure, Date)$ et $F=\{(Etudiant, Examen)\xrightarrow{(1)} (Heure, Date), (Etudiant, Heure, Date)\xrightarrow{(2)} Examen\}$  
 Soit la décomposition de $R$ en $R_1(Etudiant, Examen)$ et $R_2(Etudiant, Heure, Date)$ SPI? 
-|    |$Etudiant$|$Examen$|$Heure$|$Date$|
-|----|--------|------------|---------|------|
-|$R_1$|$a_1$|$a_2$|$b_{13}$|$b_{14}$|
-|$R_2$|$a_1$|$b_{22}$|$a_3$|$a_4$|    
+
+|       | $Etudiant$ | $Examen$ | $Heure$  | $Date$   |
+| ----- | ---------- | -------- | -------- | -------- |
+| $R_1$ | $a_1$      | $a_2$    | $b_{13}$ | $b_{14}$ |
+| $R_2$ | $a_1$      | $b_{22}$ | $a_3$    | $a_4$    |
 
 DF(1) : on ne peut rien faire  
 DF(2) : on ne peut rien faire    
@@ -646,10 +650,11 @@ Impossible de construire une ligne de "a" : la décomposition n'est pas SPI
 
 #Exercice $R(Num\_Vol, Date, Porte, Heure, Destination)$ et $F=\{(Num\_Vol, Date)\xrightarrow{(1)} Porte, Num\_Vol\xrightarrow{(2)}(Destination, Heure), (Date, Porte, Heure)\xrightarrow{(3)}Num\_Vol\}$  
 Soit la décomposition en $R_1(Num\_Vol, Destination, Heure)$ et $R_2(Num\_Vol, Porte, Date)$  
-|    |$Num\_Vol$|$Date$|$Porte$|$Heure$|$Dest$|
-|----|----------|------|-------|-------|------|
-|$R_1$|$a_1$|$b_{12}$|$b_{13}$|$a_{4}$|$a_5$|
-|$R_2$|$a_1$|$a_{2}$|$a_3$|$b_{24}$|$b_{25}$|  
+
+|       | $Num\_Vol$ | $Date$   | $Porte$  | $Heure$  | $Dest$   |
+| ----- | ---------- | -------- | -------- | -------- | -------- |
+| $R_1$ | $a_1$      | $b_{12}$ | $b_{13}$ | $a_{4}$  | $a_5$    |
+| $R_2$ | $a_1$      | $a_{2}$  | $a_3$    | $b_{24}$ | $b_{25}$ |
 
 ligne de "a" : la décomposition est SPI  
 
