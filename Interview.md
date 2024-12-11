@@ -80,4 +80,6 @@ CTF?
 #### We have some sensible data in our server room, how would you access it ?
 
 #### We have been attacked yesterday and some sensible data has been stolen, what is your first reflex ?
-
+#### Do you have any questions for us ?
+What are the company plans for the next 5 to 10 years ?
+If I am successful, chat do you need me to focus on during the first 30 days ?
