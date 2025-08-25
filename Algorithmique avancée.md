@@ -153,7 +153,7 @@ Complexité spatiale $\theta(1)$ et complexité temporelle $\theta(n)$
 
 ### **Produit de polynômes**
 
-### **Porduit de matrices carrées d'ordre n ($n=2^k$) - Méthode de Strasses** 
+### **Produit de matrices caPorduitrrées d'ordre n ($n=2^k$) - Méthode de Strasses** 
 
 Méthode naïve pour le produit de 2 matrices carrées -> 3 boucles imbriquées variant de 1 à n -> $\theta(n^3)$ (opération élémentaire : addition / multiplication)
 
@@ -303,3 +303,182 @@ fin;
 ```
 
 [[AA - TD3]]
+
+# Programmation dynamique
+
+## Introduction
+
+### Quelque mot-clés
+
+- formule de récurrence
+- calcul tabulaire
+- **PAS DE RÉCURSIVITÉ**
+
+**Remarque :** Qui dit formulaire de récurrence dit possibilité d'utiliser DpR **mais** deux différences :
+- En programmation dynamique, on calcule toujours une grandeur (un nombre) (on optimise une fonction). On n'a pas cette limitation avec DpR (ex: tours de Hanoï)
+- le calcul n'est pas effectué de la même façon
+	- DpR : du haut vers le bas
+	- Programmation dynamique : du bas vers le haut - on remplace la récursivité par une itération, on mémorise dans un tableau les résultats des sous-problèmes en commençant par les problèmes élémentaires. On construit la solution d'une sous-problème en exploitant les cases correspondant à des problèmes plus petits
+
+**Remarque :** La programmation dynamique induit de surcroît en place mémoire (à cause du tableau)
+
+## Principe de la programmation dynamique
+
+**But :** calculer la valeur optimale d'une fonction.
+**Point de départ :** identifier une formule de récurrence du type : $f_{opt}(n)=...f_{opt}(n-k)...f_{opt}(n-q)+\mbox{cas élémentaires}$ 
+
+### Principe d'optimisation de Bellman :
+
+toute sous-solution d'une solution optimale est optimale.
+
+### Démarche
+
+1) trouver la formule de récurrence
+2) identifier une structure tabulaire appropriée 
+3) stratégie de remplissage du tableau
+
+## Exemple : le World Series
+
+On considère 2 équipes : A et B de force égale. Le gagnant est la première équipe qui remporte $p$ parties. Les parties sont indépendantes. On doit calculer $P(i,j)=proba(\mbox{A gagne}|\mbox{pour vaincre, A doit encore remporter i parties, tandis que pour vaincre, B doit encore en remporter j})$ 
+**Expression récurrente de $P(i,j)$ :** 
+
+$\begin{cases} P(0,j)=1, \forall j > 0 \\ P(i,0) =0, \forall i >0 \\ P(i,j)=\frac{P(i-1,j)+P(i,j-1)}{2}, \forall i,j >0 \end{cases}$ 
+
+**Complexité pour une procédure récursive type DpR :**
+
+$\begin{cases} T(n)=2T(n-1)+d \\ T(1)=c \end{cases}$   avec $n=i+j$ 
+
+D'où : $T(n)=2^{n-1}c+(2^{n-1}-1)d$ 
+$T(n) \in \theta(2^n)$ complexité exponentielle
+
+<u>Autre solution fondée sur la programmation dynamique :</u>
+- On utilise un tableau $P$ à 2 dimensions $P[0: i+j, \ 0:i+j]$ 
+- Stratégie de remplissage ?
+
+Pour calculer la case $P[i,j]$ 
+on a besoin de la case $P[i-1, \ j]$ (celle juste à gauche) et de la case $P[i, \ j-1]$ (celle juste au dessus)
+
+**Remarque :** on peut remplir le tableau par diagonales descendantes de numéros croissant (une diagonale descendante est telle que $i+j=cte$)
+
+**Détails du calcul :**
+- On initialise la première colonne et la première ligne
+	$P[i, \ 0], \forall i$ et $P[0, \ j], \forall j$ (problèmes élémentaires)
+- Diagonale 1 :
+		$P[1, \ 0] :$ init
+		$P[0, \ 1] :$ init
+- Diagonale 2 :
+		$P[2, \ 0] :$ init
+		$P[1, \ 1] :$ requiert les valeurs de $P[0, \ 1]$ et $P[1, \ 0]$ 
+		$P[0, \ 2] :$ init
+- Diagonale 3 :
+		$P[3, \ 0] :$ init
+		$P[2, \ 1] :$ requiert les valeurs de $P[1, \ 1]$ et $P[2, \ 0]$ 
+		$P[1, \ 2] :$ requiert les valeurs de $P[1, \ 1]$ et $P[0, \ 2]$
+		$P[0, \ 3] :$ init
+
+```
+fonction calProba(ent i, ent j) : réel;
+var ent d, ent k;
+début
+	pour d allant de 1 à (i+j) faire:
+		P[0,d] <- 1;
+		P[d,0] <- 0;
+		pour k allant de 1 à (d-1) faire:
+			P[k,d-k] <- (P[k-1,d-k]+P[k,d-k-1])/2;
+		finPour;
+	finPour;
+	résultat <- P[i,j];
+fin;
+```
+
+**Complexité :**
+- temporelle : $\theta(n^2)$ avec $n=i+j$ 
+- spatiale : $\theta(n^2)$ (taille du tableau)
+
+Au lieu de $\theta(2^n)+\theta(n)$ (longueur de la branche la plus longue)
+
+### Exemple d'exécution
+
+On veut calculer $P[2,\ 3]$ 
+
+Remplit le tableau
+
+| i \ j |  0  |  1   |  2   |       3       |   4   |   5   |
+| :---: | :-: | :--: | :--: | :-----------: | :---: | :---: |
+| **0** |  X  |  1   |  1   |       1       |   1   |   1   |
+| **1** |  0  | 1/2  | 3/4  |      7/8      | 15/16 | 31/32 |
+| **2** |  0  | 1/4  | 1/2  | **==11/16==** |  ...  |  ...  |
+| **3** |  0  | 1/8  | 5/16 |      1/2      |  ...  |  ...  |
+| **4** |  0  | 1/16 | ...  |      ...      |  1/2  |  ...  |
+| **5** |  0  | 1/32 | ...  |      ...      |  ...  |  1/2  |
+
+## Exemple : le produit de matrices
+
+On veut calculer la matrice $M$ résultat du produit : $M_1 \times \ ... \ \times M_n$ avec des conditions de bon sens sur les tailles des matrices : $nbLignes(M_i)=nbColonnes(M_{i-1})$ 
+On observe que le coût du calcul varie $\pm$ fortement avec la façon de l'effectuer
+
+exemple : Soit $M_1[10,20]\times M_2[20,50]\times M_3[50,1]\times M_4[1,100]$
+Soit $n$ (resp. $m$) le nombre de colonnes (resp. lignes) dans la première matrice et $k$ le nombre de colonnes dans la deuxième matrices (son nombre de ligne est égal à $n$)
+$M[m,n]\times M'[n,k]$   --> produit une matrice de $m$ lignes et $k$ colonnes
+				--> $m\times k$ cases et chaque case coûte $n$ multiplications
+				--> Coût global :$m\times n\times k$ 
+
+<u>première stratégie :</u> de gauche à droite
+Coût : $(10\times 20\times 50)+(10\times 50\times 1) + (10\times 1\times 100) = 10000+500+1000=11500$ 
+
+<u>deuxième stratégie :</u> 
+$M_2\times M_3 \rightarrow M_{23}$ 
+$M_1\times M_{23} \rightarrow M_{123}$ 
+$M_{123}\times M_4$ 
+Coût : $(20\times 50\times 1)+(10\times 20\times 1)+(10\times 1\times 100)=1000+200+1000=2200$ 
+
+<u>troisième stratégie :</u> de droite à gauche
+Coût : $(50\times 1\times 100)+(20\times 50\times 100)+(10\times 20\times 100)=5000+100000+20000=125000$ 
+
+**Objectif :** déterminer la stratégie optimale pour faire le calcul
+
+Contraintes :
+- on doit respecter l'ordre des matrices
+- on ne sait faire que des produits binaires (càd de 2 matrices)
+
+<u>Étude de la combinatoire :</u> $M_1\times ...\times (M_i\times M_{i+1})\times ...\times M_n$
+$(n-1)$ possibilités pour le premier produit
+$(n-2)$ possibilités pour le deuxième
+...
+$(n-1)!$ pour le tout
+
+**mais** on observe que 2 "solutions" peuvent en fait être les mêmes
+exemple : $M_1\times M_2\times M_3\times M_4$ 
+$\begin{cases} sol_1 : (M_1\times M_2); (M_3\times M_4); (M_{12}\times M_{34}) \\ sol_2 :(M_3\times M_4); (M_1\times M_2); (M_{12}\times M_{34}) \end{cases} \rightarrow (M_1\times M_2)\times (M_3\times M_4)$  
+En fait, la notion pertinente est celle de parenthésage
+
+**Question :** quel est le nombre de parenthésage différents ?
+
+$(M_1\times M_2\times ...\times M_k)\times (M_{k+1}\times ...\times M_{n-1}\times M_n)$ 
+
+Expression de récurrence :
+$\begin{cases} NBP(n)=\sum\limits_{k=1}^{n-1}{k}\times NBP(n-k) \\ NBP(1)=1 \end{cases}$ 
+
+définition des [nombres de Catalan](https://www.wikiwand.com/fr/articles/Nombre_de_Catalan) qui s'expriment ainsi : $NBP(n)=\frac{1}{n+1}\binom{2n}{2}=\frac{(2n)!}{(n+1)!n!}$ 
+
+Une approximation de $NBP(n)$ est $\frac{4^n}{n\sqrt{\pi n}}$ 
+
+|  n  | NBP(n) |
+| :-: | :----: |
+|  1  |   1    |
+|  2  |   1    |
+|  3  |   2    |
+|  4  |   5    |
+|  5  |   14   |
+|  6  |   42   |
+--> le nombre de parenthésage est exponentiel. Il vaut donc mieux éviter les essais successifs !
+
+**Principe d'un calcul de programmation dynamique :** On va chercher à calculer par programmation dynamique. On va chercher à calculer le coût optimal de produits me matrices de plus en plus longs
+Soit $C_{opt}(1,n)$ le coût optimal de $M_1\times ...\times M_n$ on a $C_{opt}(k,k+1)=1$
+
+Cas général (correspondant à $C_{opt}(i,i+j)$)
+$(M_i\times ...\times M_{k-1})\times (M_k\times ...\times M_{i+j}))$ 
+On note $D[i]$ le nombre de colonnes de la matrice $M_i$ avec $i\in [0,n]$ (avec $D[0]=\ \mbox{nombre de lignes de }M_1$)
+Le coût du produit d'une matrice ayant $nbLignes(M_i)$ lignes et $nbColonnes(M_{k-1})$ colonnes
+
+[[AA - TD4]]

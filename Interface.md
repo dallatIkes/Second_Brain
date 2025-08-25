@@ -78,6 +78,7 @@ public class Rectangle implements Geometrie{
 	public void Rectangle(float x, float y, float longueur, float largeur){
 		this.x = x;
 		this.y = y;
+	
 		this.longueur = longueur;
 		this.largeur = largeur;
 	}
