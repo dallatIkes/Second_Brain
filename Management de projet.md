@@ -172,7 +172,7 @@ On estime la probabilité de chaque risque ainsi que son impact monétaire. Avec
 
 **Pour les risques positifs :**
 - l'exploiter
-- le partager (ex : opportunité de s'aventurer sur le terrain de l'[[IA]])
+- le partager (ex : opportunité de s'aventurer sur le terrain de l'[[AI]])
 - augmenter sa probabilité et/ou son impact
 - l'accepter
 

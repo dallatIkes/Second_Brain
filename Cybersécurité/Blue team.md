@@ -1,2 +1,2 @@
-- Analyse de la vulnérabilité : [[IoC]], [[TTP]], [[MITRE]] -> aujourd'hui peut être fait par l'[[IA]]
+- Analyse de la vulnérabilité : [[IoC]], [[TTP]], [[MITRE]] -> aujourd'hui peut être fait par l'[[AI]]
 - kali de la [[Blue team]] : [REMnux](https://remnux.org/) 

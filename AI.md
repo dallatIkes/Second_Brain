@@ -3,7 +3,7 @@
 ---
 # [Elements of AI](https://course.elementsofai.com)
 
-## Chapter I - What is AI ?
+## Chapter I - What is [[AI]] ?
 
 - Autonomous and adaptive systems
 - Turing test (chatbot)
@@ -11,7 +11,7 @@
 
 ![[Pasted image 20250821131955.png]]
 
-## Chapter II - AI problem solving
+## Chapter II - [[AI]] problem solving
 
 ### Search and problem solving
 
@@ -40,11 +40,11 @@
 
 Some game trees are simply too big to use the Min-Max algorithm (like chess or Go) hence the need to use heuristics.
 
-## Chapter III - Real world AI
+## Chapter III - Real world [[AI]]
 
 ### Odds and probability
 
-Modern [[IA|AI]] methods work in real life du to their ability to deal with uncertainty.
+Modern [[AI]] methods work in real life du to their ability to deal with uncertainty.
 
 In general, if the odds in favor of an event are $x:y$, the probability of the event is given by $\frac{x}{x+y}$ 
 
@@ -71,7 +71,7 @@ Modified National Institute of Standards and Technology (MNIST) dataset
 
 - **Supervised learning :** given an input, the task is the predict the correct output (ex: recognizing an hand-written number)
 - **Unsupervised learning :** there are no labels or outputs, the task is to discover the structure of the data (clustering similar items) (ex: supermarket customers) 
-- **Reinforcement learning :** the [[IA|AI]] agent operates in an environment where a delayed feedback is available (ex: self driving cars of games)
+- **Reinforcement learning :** the [[AI]] agent operates in an environment where a delayed feedback is available (ex: self driving cars of games)
 
 **Be aware of overfitting :** "trying to be too smart" - adding too much rules to a model so that it works well on the training data, but it may have terrible results in testing data.
 
@@ -168,5 +168,18 @@ The basic idea in linear regression is to add up the feature variables to produc
 
 ## Chapter V - Neural networks
 
-### Neural network basics
+![[Pasted image 20250825211353.png]]
 
+![[Pasted image 20250825211449.png]]
+
+## Implications 
+
+We CANNOT predict the future !
+
+**The value alignement problem :** <iframe title="L'horreur existentielle de l'usine à trombones." src="https://www.youtube.com/embed/ZP7T6WAK3Ow?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+
+**Issue :** privacy from data collection (ethics)
+
+---
+
+[[Hierarchical models]]
