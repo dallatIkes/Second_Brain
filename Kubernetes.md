@@ -1,0 +1,1 @@
+[[Kubernetes]] links [[Container|containers]] running on multiple hosts and orchestrates them so they can communicate.
