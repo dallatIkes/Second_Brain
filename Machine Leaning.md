@@ -1,0 +1,1 @@
+[[Generative Learning]] vs [[Discriminative Learning]] 

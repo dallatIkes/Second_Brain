@@ -1,4 +1,4 @@
-Accounts for the nested structure of the data
+counts for the nested structure of the data
 
 Example : Estimate how study hours affect grades without considering the
 school or class context.
@@ -22,3 +22,7 @@ pire algorithme : MDL
 ## Simulation de modèle
 
 **Méthode :** [[Markov chain Monte Carlo|MCMC]]  
+
+[[Machine Leaning]]
+
+[[Bayesian inference]] 
