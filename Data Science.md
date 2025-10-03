@@ -173,4 +173,31 @@
 
 ---
 
-# Thème 3 
+# Thème 3 - Inférence statistique
+
+## Estimation
+
+## Test d'hypothèse
+
+Hypothèse à accepter ou rejeter
+
+### Types d'erreurs
+
+**Erreur de type 1 :**
+
+**Erreur de type 2 :** 
+
+### Test Binomial
+
+### Test Chi-Carré
+
+### Test de Student
+
+### Taille d'effet
+
+### Analyse de la variance (ANOVA)
+
+### A/B testing 
+
+........
+
