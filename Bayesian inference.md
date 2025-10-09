@@ -13,6 +13,8 @@ By analyzing data, we want to :
 
 $$
 \begin{align}
-min_{\theta} \int_{\Omega}{(\theta - \hat{\theta})^2p(\theta|D)d\theta} &= min_{\theta} \int_{\Omega}{} \\
+min_{\theta} \int_{\Omega}{(\theta - \hat{\theta})^2p(\theta|D)d\theta} &= min_{\theta} \int_{\Omega}{l(\hat{\Theta}, \Theta)p(\Theta|D)d\Theta} \\
 \end{align}
 $$
+
+

@@ -26,3 +26,5 @@ pire algorithme : MDL
 [[Machine Leaning]]
 
 [[Bayesian inference]] 
+
+[[Bayesian point estimation methods]]

@@ -167,7 +167,7 @@
   - Support séquentiel : proportion de séquences contenant un motif.
   - Confiance séquentielle : probabilité qu’un événement suive une séquence.
 - **Algorithmes** :
-  - **[[PrefixSpan Algorithm|PrefixSpan]] : projection par préfixe, rapide et efficace.
+  - [[PrefixSpan Algorithm|PrefixSpan]] : projection par préfixe, rapide et efficace.
   - **[[SPADE Algorithm|SPADE]]** : représentation verticale, expansion par jointures.
   - **[[EMMA Algorithm|EMMA]]** : motifs séquentiels avec contraintes temporelles.
 
