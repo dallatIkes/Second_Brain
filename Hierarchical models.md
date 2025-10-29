@@ -28,3 +28,11 @@ pire algorithme : MDL
 [[Bayesian inference]] 
 
 [[Bayesian point estimation methods]]
+
+### Approximations
+
+Approcher une fonction par une autre fonction
+
+[[Laplace approximation]]
+
+[[Variational approximation]]

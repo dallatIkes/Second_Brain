@@ -41,7 +41,7 @@ $<(A,B) \rightarrow (C,D) \rightarrow E \rightarrow F>$
 **Dans le cadre de l'analyse temporelle des transactions, que signifie que deux items sont considérés comme parallèles ?**
 - Leur écart temporel se situe dans une fenêtre temporelle prédéfinie
 
-### Exercice 9 - [[FP-Growth Algorithm|FP-Growth]] vs Apriori
+### Exercice 9 - [[FP-Growth Algorithm|FP-Growth]] vs [[Apriori Algorithm|Apriori]]
 **Expliquez en trois points clés l'efficacité supérieure de l'algorithme [[FP-Growth Algorithm|FP-Growth]] par rapport à [[Apriori Algorithm|Apriori]] lors du traitement de bases de données massives (décrivez l'avantage structurel de [[FP-Growth Algorithm|FP-Growth]])**
 - nombre limité de parcours de la base de données
 - Utilise la structure d'arbre
