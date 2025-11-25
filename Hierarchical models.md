@@ -36,3 +36,6 @@ Approcher une fonction par une autre fonction
 [[Laplace approximation]]
 
 [[Variational approximation]]
+
+
+
