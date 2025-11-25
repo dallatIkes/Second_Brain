@@ -3,6 +3,6 @@ Le [[Kriging|krigeage]] est, en géostatistique, une famille de méthodes d’es
 Prédiction linéaire
 
 Deuxième approche : au lieu d'utiliser la matrice des poids, on utilise la matrice des [[Variogram|variogrammes]]
-(même résultat)
+(même résultat : juste remplacer $C_{kj}$ par $\gamma_{kj}$)
 
 
