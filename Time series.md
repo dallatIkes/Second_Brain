@@ -13,3 +13,5 @@ granularité/chaîne/résolution $\rightarrow$ mesure d'une valeur qui évolue d
 ### [[Variogram]] 
 
 ### [[Kriging]]
+
+

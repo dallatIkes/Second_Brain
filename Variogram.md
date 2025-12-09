@@ -11,6 +11,18 @@ $$
 $z$ est un **Random Process** d'ordre 2
 $$E(z_iz_j)-u^2=Cov(z_i,z_j)$$
 $$\boxed{E(z_iz_j)=Cov(z_i,z_j)+u^2}$$
+
+Montrer que $E(z_hz_0)=Cov(z_h,z_0)+E^2(z_0) :$
+$$
+\begin{align}
+Cov(z_h,z_0) &= E[(z_h-E(z_h)(z_0-E(z_0)))] \\
+&= E[z_hz_0-z_hu-uz_0+u^2] \\
+&= E(z_hz_0)-E(z_hu)-E(uz_0)+E(u^2) \\
+&= E(z_hz_0)-uE(z_h)-\cancel{uE(z_0)}+\cancel{u^2} \\
+&= E(z_hz_0)-u^2
+\end{align}
+$$
+
 $Y=\sum_iw_iz_i$, $\sum_iw_i=0$ 
 $$
 \begin{align}
@@ -47,6 +59,21 @@ $$
 \boxed{\frac{1}{2}\sum_i\sum_jw_iw_j\gamma(h_{ij})\le0}
 $$
 
+Montrer que $\gamma(h) = Cov(0)-Cov(h)$
+$$
+\begin{align}
+\gamma(h) &= \frac{1}{2}Var(z_h-z_0) \\
+&= \frac{1}{2}[E((z_h-z_0)^2)-(E(z_h-z_0))^2] \\
+&= \frac{1}{2}E[(z_h-z_0)^2]-\cancel{(E(z_h)-E(z_0))^2} \\
+&= \frac{1}{2}E[(z_h-z_0)^2] \\
+&= \frac{1}{2}E[z_h^2+z_0^2-2z_hz_0] \\
+&= \frac{1}{2}[E(z_h^2)+E(z_0^2)-2E(z_hz_0)] \\
+&= \frac{1}{2}[\sigma^2+\cancel{u^2}+\sigma^2+\cancel{u^2}-2[Cov(z_h,z_0)+\cancel{u^2}]] \\
+&= \cancel{\frac{1}{2}}[\cancel{2}\sigma^2-\cancel{2}Cov(z_h,z_0)] \\
+&= Cov(0)-Cov(h)
+\end{align}
+$$
+
 ## Parameters
 
 ![[Pasted image 20251125094610.png]]
@@ -55,3 +82,8 @@ Intrinsèquement stationnaire $\supset$ stationnaire (2ème ordre) $\supset$ for
 et on ne traite que ce qui est [[Ergodicité|ergodique]] 
 
 le maximum d'un [[Variogram|variogramme]] est la variance
+
+**Tendance :** variation dans la moyenne
+![[Pasted image 20251202093530.png]]
+
+Notion de voisinage : clique
