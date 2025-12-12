@@ -1,3 +1,7 @@
+---
+aliases:
+  - SVM
+---
 # Modèle linéaire pour la classification
 
 - Une **fonction discriminante** a le rôle de prendre une entrée $x$ et de lui assigner une classe parmi $K$ classes existantes
