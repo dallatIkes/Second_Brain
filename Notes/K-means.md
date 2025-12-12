@@ -14,8 +14,9 @@ Partitionne l’ensemble $X$ de données en $K$ clusters avec $K$ un hyperparam�
 - **Étape 3 :** Mise à jour des centres des clusters qui deviennent la moyenne des coordonnées des points qu'ils contiennent : $\mu_k^{(t)}=\frac{\sum_{i=1}^nu_{i,k}x_i}{\sum_{i=1}^nu_{i,k}}$ 
 - **Étape 4 :** On recommence à partir de l'étape 2 jusqu'à convergence : $\forall k,\lVert\mu_k^{(t)}-\mu_k^{(t+1)}\rVert\lt\epsilon$ 
 
-Exemple d'exécution de l'algorithme :
+Exemples d'exécution de l'algorithme :
 ![[Pasted image 20251212164224.png]]
+![[Pasted image 20251212164937.png]]
 
 ---
 
