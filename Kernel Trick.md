@@ -1,0 +1,1 @@
+Tous les problèmes ne peuvent pas être résolus avec un modèle linéaire. Par contre, on peut obtenir des modèles non-linéaires à l'aide de fonctions non-linéaires.
