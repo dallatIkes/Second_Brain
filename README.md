@@ -1,6 +1,6 @@
 # 🧠 Second_Brain — Notes & Concepts d’Informatique
 
-Ce dépôt contient un vault Obsidian regroupant des notes d’informatique : cours, notions théoriques, concepts découverts au fil de projets et explications reformulées pour faciliter la compréhension. L’objectif est de centraliser l’information, créer des liens entre les idées et disposer d’un espace d’apprentissage évolutif.
+Ce dépôt contient un vault [Obsidian](https://obsidian.md/) regroupant des notes d’informatique : cours, notions théoriques, concepts découverts au fil de projets et explications reformulées pour faciliter la compréhension. L’objectif est de centraliser l’information, créer des liens entre les idées et disposer d’un espace d’apprentissage évolutif.
 
 ## 🗂️ Utilisation avec Obsidian
 
