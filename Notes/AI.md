@@ -67,7 +67,7 @@ Example : Spam filter
 Modified National Institute of Standards and Technology (MNIST) dataset
 ![[Pasted image 20250822174224.png]]
 
-### The types of machine learning
+### The types of [[Machine Learning]]
 
 - **Supervised learning :** given an input, the task is the predict the correct output (ex: recognizing an hand-written number)
 - **Unsupervised learning :** there are no labels or outputs, the task is to discover the structure of the data (clustering similar items) (ex: supermarket customers) 
@@ -158,7 +158,7 @@ Regression is a bit different form classification because it doesn't produce a w
 
 The basic idea in linear regression is to add up the feature variables to produce the predicted value. The technical term for adding up process is linear combination. 
 
-**Intercept :** technical term for the starting point before any input (ex: women that don't smoke nor eat vegetables, number of lines of code written without drinking any coffee).
+**Intercept :** technical term for the starting point before any input (ex: women that don't smoke nor eat vegetables, number of lines of code written without drinking any coffee). ^372119
 
 **Ex:** Suppose that we're given the gender, the amounts of cigarettes smoked and vegetables handfuls eaten and the life expectancy of many people. With linear regression it is possible to find the weight of every input.
 **Ex:** find the price of each item given the bill with the total and the amount of products bought.
@@ -166,7 +166,7 @@ The basic idea in linear regression is to add up the feature variables to produc
 **Logistic regression** is used to find the label of a test data with regression
 ![[Pasted image 20250823223836.png]]
 
-## Chapter V - Neural networks
+## Chapter V - [[Neural networks]]
 
 ![[Pasted image 20250825211353.png]]
 

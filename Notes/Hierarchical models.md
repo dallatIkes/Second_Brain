@@ -23,7 +23,7 @@ pire algorithme : MDL
 
 **Méthode :** [[Markov chain Monte Carlo|MCMC]]  
 
-[[Machine Leaning]]
+[[Machine Learning]]
 
 [[Bayesian inference]] 
 

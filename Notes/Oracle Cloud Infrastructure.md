@@ -403,7 +403,7 @@ cheese =>                        // prompt
 
 Sometimes, prompting is not enough, you need to enhance its performance outside of the domain/subject-area it was trained on.
 
-**Fine-tuning :** classical [[Machine Leaning]] training where we change all the parameters (very expensive!)
+**Fine-tuning :** classical [[Machine Learning]] training where we change all the parameters (very expensive!)
 **Parameter Efficient Fine-tuning :** we keep the parameters of the model fixed and add new ones
 **Soft prompting :** add parameters to the prompt (learnable prompt)
 **Continual pre-training :** like fin-tuning but without labeled data
