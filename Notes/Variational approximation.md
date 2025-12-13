@@ -1,16 +1,49 @@
-## KL divergence-based approach
+---
+aliases:
+  - Inférence variationnelle
+---
+---
+# KL divergence-based approach
 
-minimiser la divergence (distance non symétrique) entre $q_\theta(z)$ et la véritable distribution à posteriori :$$KL(q||p)=E_{q(z)}(\ln\frac{q_\theta(z)}{p_\phi(z|x)})=\int q_\theta(z)\ln\frac{q_\theta(z)}{p_\phi(z|x)}dz, \ \ q=p \implies KL()=0$$
-## Evidence Lower Bound (ELBO) based approach
+minimiser la **divergence** (distance non symétrique) entre $q_\theta(z)$ et la véritable distribution à posteriori :$$
+\begin{align}
+KL(q_\theta(z)||p_\varphi(z\vert x)) &= E_{q(z)}[\ln q_\theta(z)-\ln p_\varphi(z\vert x)]\\
+&= E_{q(z)}(\ln\frac{q_\theta(z)}{p_\varphi(z\vert x)}) \\
+&= \int q_\theta(z)\ln\frac{q_\theta(z)}{p_\varphi(z\vert x)}dz, \\ 
+q=p &\implies KL()=0
+\end{align}$$
+---
+# Evidence Lower Bound (ELBO) based approach
 
 $$
 \begin{align}
-\ln p(x) &= \ln\int_\Omega p(x,z)dz \\
-&= \ln\int_\Omega q(z)\frac{p(x,z)}{q(z)}dz \\
-&= \ln E_q(\frac{p(x,z)}{q(z)})
+\ln p_\varphi(x) &= \ln\int_\Omega p_\varphi(x,z)dz \\
+&= \ln\int_\Omega q(z)\frac{p_\varphi(x,z)}{q(z)}dz \\
+&= \ln E_q(\frac{p_\varphi(x,z)}{q(z)})
 \end{align}
 $$
-$ln$ est une fonction concave, nous pouvons utiliser l'[[Inégalité de Jensen]] : $$\ln E_q(\frac{p}{q}) \ge E_q(\ln\frac{p}{q})=E_q(\ln p(x,z)-\ln q(z)) \ \ (ELBO)$$
+$\ln$ est une fonction concave, nous pouvons utiliser l'[[Inégalité de Jensen]] : $$\ln E_q(\frac{p}{q}) \ge E_q(\ln\frac{p}{q})=E_q(\ln p(x,z)-\ln q(z)) \ \ (ELBO)$$
+
+---
+# Équivalence des deux approches
+
+$$\ln p_\varphi(x)=ELBO(\theta,\varphi)+KL(q_\theta(z)\vert\vert p_\varphi(z\vert x))$$
+$ELBO$ est une borne inférieure de $\ln p_\varphi(x)$. La maximiser revient à minimiser le $KL$
+Donc maximiser le $ELBO$ **maximise le data fit** et **minimise la divergence** entre $q$ et $p$
+
+---
+# Propriétés
+
+L'[[Variational approximation|Inférence variationnelle]]  convertit l'**intégration** en **optimisation**
+Une posterior parfois intractable devient une simple fonction de potentiel
+Largement utilisée dans :
+- les [[Neural networks|Réseaux de neurones]] Bayésiens
+- les Latent Variable models
+- les Topic Modeling, Gaussian mixtures, ...
+
+---
+
+# Exemples
 
 $$
 \begin{align}
