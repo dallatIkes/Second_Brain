@@ -1,3 +1,9 @@
+---
+aliases:
+  - Inférence Bayésienne
+---
+---
+
 **Goal :** learn from data (usually generated from an unknown distribution)
 By analyzing data, we want to : 
 - Learn about the distribution
