@@ -2,10 +2,12 @@
 aliases:
   - SVM
 ---
-# Modèle linéaire pour la classification
+---
+
+# Modèle linéaire pour la [[Classification]]
 
 - Une **fonction discriminante** a le rôle de prendre une entrée $x$ et de lui assigner une classe parmi $K$ classes existantes
-- Un **classificateur linéaire** utilise une **frontière de décision linaire** pour assigner les classes aux données
+- Un **classificateur linéaire** utilise une **frontière de décision linéaire** pour assigner les classes aux données
 
 Pour des données en 2d, la frontière est un plan :
 ![[Pasted image 20251211170136.png]]
@@ -17,7 +19,7 @@ en 4d, un hyperplan, etc...
 
 ![[Pasted image 20251211170422.png]]
 
-La **meilleur fonction discriminante** est celle qui **généralise la classification** et elle est **stable** par rapport aux nouvelles données
+La **meilleur fonction discriminante** est celle qui **généralise la [[Classification|classification]]** et elle est **stable** par rapport aux nouvelles données
 
 La solution offrant le **maximum de marge** d’erreur peut être une bonne alternative pour une meilleure **généralisation**
 
@@ -26,6 +28,8 @@ La solution offrant le **maximum de marge** d’erreur peut être une bonne alte
 ---
 
 # [[Support Vector Machine|Machine à Support de Vecteurs]]
+
+Il s'agit d'une [[Learning Technique|technique d'apprentissage]] qui permet de trouver la **meilleure frontière de décision**
 
 ![[Pasted image 20251211170800.png]]
 
@@ -36,7 +40,7 @@ ce qui peut être reformulé en $$\arg\min_w\frac{1}{2}\lVert w\rVert^2$$
 Mais on ne peut pas juste dériver et trouver la valeur optimale car il y a une contrainte à notre $w$ :
 $$(w^Tx^{(i)}+w_0)y^{(i)}\gt1$$
 
-Il faut donc introduire les **multiplicateurs de Lagrange** et notre nouvelle fonction à optimiser devient : $$Q=\frac{1}{2}\lVert w\rVert^2-\sum_{i=1}^n\alpha_i[y^{(i)}(w^Tx^{(i)}+w_0)-1]$$Il n'existe pas de solution analytique à ce problème, on le résout donc numériquement
+Il faut donc introduire les **multiplicateurs de Lagrange** et notre nouvelle fonction à optimiser devient : $$Q=\frac{1}{2}\lVert w\rVert^2-\sum_{i=1}^n\alpha_i[y^{(i)}(w^Tx^{(i)}+w_0)-1]$$Il n'existe **pas de solution analytique** à ce problème, on le résout donc **numériquement**
 
 L'ensemble des données $x^{(i)}$ pour lesquels $\alpha_i\gt0$ sont appelés **vecteurs de support**
 
@@ -52,14 +56,14 @@ Les données loin de la marge ne fournissent pas d'information sur la solution (
 Parfois les classes de sont pas **linéairement séparables** :
 ![[Pasted image 20251211182843.png]]
 
-Dans ce cas l'algo [[Support Vector Machine|SVM]] ne fonctionne pas directement, mais on peu le forcer à **tolérer des erreurs** de classification
+Dans ce cas l'algo [[Support Vector Machine|SVM]] ne fonctionne pas directement, mais on peu le forcer à **tolérer des erreurs** de [[Classification|classification]]
 
 Pour chaque $x^{(i)}$ on intègre une variable $\xi_i\ge0$ qui mesure la **déviation** par rapport à la marge :
 - $0\le\xi_i\le\frac{1}{\lVert w\rVert}$ (entre la frontière et la marge) : **violation de marge**
 - $\xi_i\gt\frac{1}{\lVert w\rVert}$ : **point mal classé**
 ![[Pasted image 20251211183416.png]]
 
-On adapte la contrainte qui devient : $$(w^Tx^{(i)}+w_0)y^{(i)}\ge1-\xi_i$$L'erreur de classification globale est défini par : $$\sum_{i=1}^N\xi_i$$On ajoute cette erreur comme pénalité à notre fonction à optimiser :$$Q=\frac{1}{2}\lVert w\rVert^2+C\sum_{i=1}^N\xi_i-\sum_{i=1}^N\alpha_i[(w^Tx^{(i)}+w_0)y^{(i)}-1+\xi_i]-\sum_{i=1}^N\tau_i\xi_i$$avec $\tau_i$ les multiplicateurs de Lagrange et $C$ une constante
+On adapte la contrainte qui devient : $$(w^Tx^{(i)}+w_0)y^{(i)}\ge1-\xi_i$$L'erreur de [[Classification|classification]] globale est défini par : $$\sum_{i=1}^N\xi_i$$On ajoute cette erreur comme pénalité à notre fonction à optimiser :$$Q=\frac{1}{2}\lVert w\rVert^2+C\sum_{i=1}^N\xi_i-\sum_{i=1}^N\alpha_i[(w^Tx^{(i)}+w_0)y^{(i)}-1+\xi_i]-\sum_{i=1}^N\tau_i\xi_i$$avec $\tau_i$ les multiplicateurs de Lagrange et $C$ une constante
 
 On a toujours les **vecteurs à support** avec $\alpha_i\gt0$ 
 De plus, les **vecteurs à support** avec $\alpha_i\lt C$ seront sur la **marge** et auront $\xi_i=0$ 

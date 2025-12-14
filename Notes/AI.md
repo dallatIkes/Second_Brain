@@ -1,3 +1,7 @@
+---
+aliases:
+  - IA
+---
 "Faire exécuter par l'ordinateur des tâches pour lesquelles l'Homme est aujourd'hui meilleur que la machine" - sinon ça devient de l'algorithmique
 
 ---
@@ -56,21 +60,21 @@ In general, if the odds in favor of an event are $x:y$, the probability of the e
 **Bayes formula :** $\text{posterior odds}=\text{likelihood ratio}\times\text{prior odds}$  
 In other words : $$P(A|B)=\frac{P(B|A)\times P(A)}{P(B)}$$ 
 Proof : $$\text{We know that }P(A|B)=\frac{P(A\cap B)}{P(B)}\text{ and }P(B|A)=\frac{P(B\cap A)}{P(A)}\text{ hence }P(B\cap A) = P(A\cap B) = P(B|A)P(A)\text{ so } P(A|B)=\frac{P(B|A)\times P(A)}{P(B)}$$
-### Naive Bayes classification
+### Naive Bayes [[Classification|classification]]
 
-Machine learning technique used to classify objects into classes (called naive because of the models oversimplification of reality).
+[[Machine Learning]] technique used to classify objects into classes (called naive because of the models oversimplification of reality).
 
 Example : Spam filter
 
-## Chapter IV - Machine Learning
+## Chapter IV - [[Machine Learning]]
 
 Modified National Institute of Standards and Technology (MNIST) dataset
 ![[Pasted image 20250822174224.png]]
 
 ### The types of [[Machine Learning]]
 
-- **Supervised learning :** given an input, the task is the predict the correct output (ex: recognizing an hand-written number)
-- **Unsupervised learning :** there are no labels or outputs, the task is to discover the structure of the data (clustering similar items) (ex: supermarket customers) 
+- **Supervised learning :** given an input, the task is the predict the correct output (ex: recognizing an hand-written number) here we talk more of ![[Classification|classification]]
+- **Unsupervised learning :** there are no labels or outputs, the task is to discover the structure of the data (clustering similar items) (ex: supermarket customers)  here we talk more of ![[Clustering]]
 - **Reinforcement learning :** the [[AI]] agent operates in an environment where a delayed feedback is available (ex: self driving cars of games)
 
 **Be aware of overfitting :** "trying to be too smart" - adding too much rules to a model so that it works well on the training data, but it may have terrible results in testing data.
@@ -152,19 +156,9 @@ Ex: predicting the next shopping item :
 
 Travis's Shopping history is more similar to Ville's (3 matching items) so our prediction is : sunscreen
 
-### Regression
+### [[Regression]]
 
-Regression is a bit different form classification because it doesn't produce a whole number. It is best suited to predict prices, distances and so on.
-
-The basic idea in linear regression is to add up the feature variables to produce the predicted value. The technical term for adding up process is linear combination. 
-
-**Intercept :** technical term for the starting point before any input (ex: women that don't smoke nor eat vegetables, number of lines of code written without drinking any coffee). ^372119
-
-**Ex:** Suppose that we're given the gender, the amounts of cigarettes smoked and vegetables handfuls eaten and the life expectancy of many people. With linear regression it is possible to find the weight of every input.
-**Ex:** find the price of each item given the bill with the total and the amount of products bought.
-
-**Logistic regression** is used to find the label of a test data with regression
-![[Pasted image 20250823223836.png]]
+![[Regression#Basics]]
 
 ## Chapter V - [[Neural networks]]
 
