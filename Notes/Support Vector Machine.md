@@ -76,7 +76,7 @@ Plus $C$ est petit et plus la **marge** est grande (on peut se permettre d'ignor
 
 # [[Support Vector Machine|SVM]] et frontières de décision non-linéaires
 
-Les performances du [[Support Vector Machine|SVM]] se **détériorent** lorsque les classes des données ne sont **pas linéairement séparables**. Si on veut tout de même l'utiliser, il faut transformer l'espace d'entrée $X$ en un autre espace $X'$ où les classes deviennent **linéairement séparables**
+Les performances du [[Support Vector Machine|SVM]] se **détériorent** lorsque les classes des données ne sont **pas linéairement séparables**. Si on veut tout de même l'utiliser, il faut transformer l'espace d'entrée $X$ en un autre espace $X'$ où les classes deviennent **linéairement séparables**. Ce nouvel espace est généralement de **plus grande dimension** et s'appelle l'**espace des caractéristiques**.
 
 ![[Pasted image 20251211185410.png]]
 ![[Pasted image 20251211185448.png]]
@@ -85,3 +85,16 @@ On évite de faire **explicitement la transformation** de $\mathbb{R}^D$ vers $\
 
 Exemple avec le [[Kernel Trick|noyau Gaussien]] :
 ![[Pasted image 20251211190001.png]]
+
+---
+
+# Forces et Faiblesses
+
+**Forces :**
+- Base **théorique rigoureuse**
+- [[Classification]] **efficace**, surtout pour les données de **grande dimension**
+- Peut être appliqué aux problèmes **non linéaires** grâce à l'[[Kernel Trick|astuce du noyau]] 
+**Faiblesses :**
+- Fonctionne uniquement dans un **espace réel** (il faut convertir les valeurs discrètes en valeurs numériques)
+- Ne fait que la **[[Classification|classification]] binaire** (on peut toujours faire du One-vs-Rest)
+- L'hyperplan obtenu est **difficilement compréhensible** par les humains
