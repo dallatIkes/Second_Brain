@@ -1,10 +1,15 @@
 ---
 aliases:
   - Arbre de décision
+cssclasses:
+  - "[[Machine Learning]]"
 ---
+
 ---
 
 # Concept de base
+
+[[Learning Technique|Technique d'apprentissage]] pour la [[Classification|classification]]
 
 Manière d'organiser nos données sous forme d'arbre avec : 
 - **Nœud :** test sur la valeur d'un ou plusieurs attributs
@@ -31,7 +36,7 @@ En appliquant **ID3** à notre exemple précédent, on obtient finalement un arb
 
 ---
 
-# Classification par [[Decision Tree|Arbre de décision]]
+# [[Classification]] par [[Decision Tree|Arbre de décision]]
 
 On commence à la racine et on suit simplement la branche avec la valeur de l'attribut correspondant jusqu'à arriver à une feuille et on renvoi son étiquette
 
