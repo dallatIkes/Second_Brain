@@ -17,7 +17,7 @@ La sortie $\hat{y}$ est une **somme pondérée des entrées** : $$\hat{y}=f(x)=w
 
 ---
 
-# Perceptron et régression
+# Perceptron et [[Regression|régression]]
 
 Une fois notre réseau en place, il faut estimer **vecteur des poids** $w$, pour ce faire, il y a : 
 - la méthode **hors ligne** : on fournit l'ensemble $D$ de données d'un coup
@@ -27,14 +27,14 @@ On définit l'**erreur de sortie** produite par un ensemble d'entrainement $(x^{
 
 ---
 
-# Perceptron et classification binaire
+# Perceptron et [[Classification|classification]] binaire
 
 Le **perceptron** définit un **hyperplan** qui divise l'espace des données en deux classes ($C_1$ et $C_2$)
 La probabilité à posteriori de la classe $C_1$ est donné par $$g(x)=\frac{1}{1+\exp(-w^Tx)}$$
 
 ---
 
-# Perceptron et classification multiple
+# Perceptron et [[Classification|classification]] multiple
 
 Pour un nombre de classe $K\gt2$, on définit $K$ perceptrons et on utilise la fonction **Softmax**:
 ![[Pasted image 20251212123041.png]]
@@ -43,7 +43,7 @@ Pour un nombre de classe $K\gt2$, on définit $K$ perceptrons et on utilise la f
 
 # Perceptron multi-couches
 
-Le problème avec les perceptrons uni-couche est qu'il ne peuvent approximer que les **fonctions linéaires**. Cependant, en utilisant des **couches intermédiaires** en plus (aussi appelées **cachées**), on peut faire de la **régression** et de la **classification** **non-linéaire**
+Le problème avec les perceptrons uni-couche est qu'il ne peuvent approximer que les **fonctions linéaires**. Cependant, en utilisant des **couches intermédiaires** en plus (aussi appelées **cachées**), on peut faire de la **[[Regression|régression]]** et de la **[[Classification|classification]]** **non-linéaire**
 
 ![[Pasted image 20251212123401.png]]
 

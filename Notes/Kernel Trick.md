@@ -2,15 +2,17 @@
 aliases:
   - Astuce du noyau
 ---
-Tous les problèmes ne peuvent pas être résolus avec un modèle linéaire. Par contre, on peut obtenir des modèles non-linéaires à l'aide de fonctions non-linéaires. 
+---
+
+Tous les problèmes ne peuvent pas être résolus avec un **modèle linéaire**. Par contre, on peut obtenir des **modèles non-linéaires** à l'aide de **fonctions non-linéaires**. 
 
 Exemple :
 ![[Pasted image 20251212095218.png]]
 ![[Pasted image 20251212095248.png]]
 
-Pour rappel, notre **problème de régression** (maximum à posteriori) est : $$w=\arg\min_w\sum_{i=1}^N(w^T\Phi(x_i)-y_i)^2+\lambda\lVert w\rVert^2$$(poids qui minimisent l'écart avec la cible en prenant en compte le biais)
+Pour rappel, notre **problème de [[Regression|régression]]** (maximum à posteriori) est : $$w=\arg\min_w\sum_{i=1}^N(w^T\Phi(x_i)-y_i)^2+\lambda\lVert w\rVert^2$$(poids qui minimisent l'écart avec la cible en prenant en compte le biais)
 
-Si on **fixe le gradient** par rapport à $w$ à $0$, on obtient : $$w=\Phi^ta$$Si on reprend notre **fonction objectif de la régression ridge** : $$J(w)=\sum_{i=1}^N(w^T\Phi(x_i)-y_i)^2+\lambda\lVert w\rVert^2$$en remplaçant $w$ par $\Phi^ta$, on obtient : $$J(a)=a^T\phi\phi^T\phi\phi^Ta-a^T\phi\phi^Ty+y^Ty+\lambda a^T\phi\phi^Ta$$c'est la **représentation duale** de $J(w)$
+Si on **fixe le [[Gradient|gradient]]** par rapport à $w$ à $0$, on obtient : $$w=\Phi^ta$$Si on reprend notre **fonction objectif de la [[Regression|régression]] ridge** : $$J(w)=\sum_{i=1}^N(w^T\Phi(x_i)-y_i)^2+\lambda\lVert w\rVert^2$$en remplaçant $w$ par $\Phi^ta$, on obtient : $$J(a)=a^T\phi\phi^T\phi\phi^Ta-a^T\phi\phi^Ty+y^Ty+\lambda a^T\phi\phi^Ta$$c'est la **représentation duale** de $J(w)$
 On peut noter $\phi\phi^T = K$ où $K_{nm}=k(x_n,x_m)=\phi(x_n)^T\phi(x_m)$ 
 $K$ est la **[[Matrice de Gram]]** et $k(x_n,x_m)$ le **noyau**
 
