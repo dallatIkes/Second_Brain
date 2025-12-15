@@ -11,7 +11,7 @@ Il possède un **vecteur d'entrée** de réels $x=(x_1,x_2,...,x_D)$ qui peut pr
 Pour chaque entrée $x_d$ on associe un **poids (synaptique)** $w_d$ 
 
 La sortie $\hat{y}$ est une **somme pondérée des entrées** : $$\hat{y}=f(x)=w_0+\sum_{d=1}^Dw_dx_d$$$w_0$ est appelé **intercept** :
-![[Notes/AI#^372119]]
+![[Notes/Regression#^372119]]
 
 ![[Screenshot from 2025-12-12 12-00-30.png]]
 
