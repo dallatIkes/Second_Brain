@@ -2,9 +2,11 @@
 aliases:
   - Réseau de neurones
 ---
+---
+
 # Concepts de base
 
-L'élément de traitement de base d'un [[Neural networks|Réseau de neurones]] est appelé : **perceptron**
+L'élément de traitement de base d'un [[Neural networks|réseau de neurones]] est appelé : **perceptron**
 
 Il possède un **vecteur d'entrée** de réels $x=(x_1,x_2,...,x_D)$ qui peut provenir de l'**environnement (entrée)** ou d'un **autre perceptron**
 

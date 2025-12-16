@@ -5,7 +5,7 @@ aliases:
 ---
 # KL divergence-based approach
 
-minimiser la **divergence** (distance non symétrique) entre $q_\theta(z)$ et la véritable distribution à posteriori :$$
+minimiser la **divergence** (distance non symétrique) entre $q_\theta(z)$ et la véritable distribution à posteriori : $$
 \begin{align}
 KL(q_\theta(z)||p_\varphi(z\vert x)) &= E_{q(z)}[\ln q_\theta(z)-\ln p_\varphi(z\vert x)]\\
 &= E_{q(z)}(\ln\frac{q_\theta(z)}{p_\varphi(z\vert x)}) \\

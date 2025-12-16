@@ -1,3 +1,7 @@
+---
+aliases:
+  - science des données
+---
 # Thème 1 - Concepts de base en [[Data Science|Science des Données]]
 
 ## 1. Introduction

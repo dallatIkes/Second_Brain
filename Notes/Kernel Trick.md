@@ -28,7 +28,7 @@ L'[[Kernel Trick|Astuce du noyau]] permet de **calculer $K$** sans avoir à **ca
 Exemple avec $x^T=(x_1,x_2)$ et $\Phi(x)=(x_1^2, \sqrt{2}x_1x_2, x_2^2)$ :
 $$
 \begin{align}
-k(x,x') &= \Phi(x)^T\Phi(x)\hspace{150pt}\text{(10 multiplications et 2 additions)} \\
+k(x,x') &= \Phi(x)^T\Phi(x')\hspace{150pt}\text{(10 multiplications et 2 additions)} \\
 &= (x_1^2,\sqrt{2}x_1x_2,x_2^2)^T(x_1'^2,\sqrt{2}x_1'x_2',x_2'^2) \\
 &= x_1^2x_1'^2+2x_1x_1'x_2x_2'+x_2^2x_2'^2 \\
 &= (x_1x_1'+x_2x_2')^2 \\

@@ -35,11 +35,20 @@ pire algorithme : MDL
 
 Approcher une fonction par une autre fonction
 
-	Le but principale de l'**[[Bayesian inference|Inférence Bayésienne]]** est de spécifier la **posterior** : $p(\Theta\vert X)$. Cela peut être fait avec des **algorithmes exacts**, mais dans la plupart des cas, la **complexité** **spatiale** et **temporelle**, rend leur utilisation non raisonnable. Dans ce cas, nous avons besoin d'approximations.
+Le but principale de l'**[[Bayesian inference|Inférence Bayésienne]]** est de spécifier la **posterior** : $p(\Theta\vert X)$. Cela peut être fait avec des **algorithmes exacts**, mais dans la plupart des cas, la **complexité** **spatiale** et **temporelle**, rend leur utilisation non raisonnable. Dans ce cas, nous avons besoin d'approximations.
 
 [[Laplace approximation]]
 
 [[Variational approximation]]
+
+---
+
+## [[Time series]]
+
+![[Time series]]
+
+
+---
 
 ### [[Spatiotemporal Models]]
 
