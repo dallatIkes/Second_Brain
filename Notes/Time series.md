@@ -92,9 +92,58 @@ $Y_t=Y_{t-1}+e_t$ où :
 
 ---
 
-# Modèle autorégressif
+# Modèle autorégressif (AR)
 
+$Y_t=a_1Y_{t-1}+a_2Y_{t-2}+...+a_nY_{t-n}$, avec :
+- $e_t\sim\mathcal{N}(0,\sigma^2)$
+- $n$ est la mémoire du processus
+- les coefficients $a_1,...,a_n$ déterminent la dynamique
+![[Pasted image 20251216154400.png]]
 
+**Interprétation :** La valeur actuelle dépend **linéairement** des $n$ valeurs précédentes $+$ un bruit
+
+#Exemple **AR(1)**
+$Y_t=aY_{t-1}+e_t$
+Condition de la [[Stationnarité|stationnarité]] : $\lvert a\rvert\lt1$ 
+Autocorrélation : $\rho(k)=a^k\text{ (décroissance exponentielle)}$
+
+# Modèle à Moyenne Mobile (MA)
+
+$Y_t=e_t+a_1e_{t-1}+...+a_ne_{t-n}$  où
+- $e_t\sim\mathcal{N}(0,\sigma^2)$ 
+
+**Caractéristiques du MA(1)** : $Y_t=e_t+ae_{t-1}$
+- Variance : $\mathrm{Var}(Y_t)=\sigma^2(1+a^2)$ 
+- Covariance : $\mathrm{Cov}(Y_t,Y_{t-1})=a\sigma^2$ et $\mathrm{Cov}(Y_t,Y_{t-k})=0\text{ pour }k\gt1$ 
+- Autocorrélation : $\rho(1)=\frac{a}{1+a^2}$ et $\rho(k\ge2)=0$ 
+
+![[Pasted image 20251216162901.png]]
+
+**Différence clé avec AR :** L’autocorrélation s'annule après le lag $q$ (effet de "coupure")
+
+# Lien entre AR et MA
+
+Un processus AR peut s'écrire comme un MA d'**ordre infini**
+
+#Exemple $Y_t=bY_{t-1}+e_t$ 
+En développant récursivement on trouve : $$
+\begin{align}
+Y_t &= b(bY_{t-2}+e_{t-1})+e_t \\
+&= b^2Y_{t-2}+be_{t-1}+e_t \\
+&= b^3Y_{t-3}+b^2e_{t-2}+be_{t-1}+e_t \\
+&= ... \\
+&= \sum_{k=0}^{+\infty}b^ke_{t-k} \text{ pour } \lvert b\rvert\lt1\text{ et }t\rightarrow\infty
+\end{align}$$
+# Modèle ARMA(p,q)
+
+$Y_t=b_1Y_{t-1}+...+b_pY_{t-p}+e_t+a_1e_{t-1}+...+a_qe_{t-q}$
+
+Il combine une partie **autorrégressive** (dépendance aux valeurs passées) et une partie **moyenne mobile** (dépendance aux erreurs passées)
+
+![[Pasted image 20251216162919.png]]
+Ex : ARMA(2,2)
+
+# Estimation des modèles AR : Méthode des moments
 
 
 
