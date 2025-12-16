@@ -143,10 +143,90 @@ Il combine une partie **autorrégressive** (dépendance aux valeurs passées) et
 ![[Pasted image 20251216162919.png]]
 Ex : ARMA(2,2)
 
-# Estimation des modèles AR : Méthode des moments
+# Estimation des modèles AR 
 
+## Méthode des moments
 
+On a $Y_t=a_0+a_1Y_{t-1}+a_2Y_{t-2}+...+a_nY_{t-n}+e_t$
+ Pour estimer $a_0, a_1, a_2, ..., a_n, \sigma$, on résout le système d'équation de **Yule-Walker** :$$
+ \begin{cases}
+ C_Y(0) &= a_1C_Y(-1)+a_2C_Y(-2)+...+a_nC_Y(-n)+\sigma^2 \\
+ C_Y(1) &= a_1C_Y(0)+a_2C_Y(-1)+...+a_nC_Y(-n+1) \\
+ ... \\
+ C_Y(n) &= a_1C_Y(n-1)+a_2C_Y(n-2)+...+a_nC_Y(0)
+ \end{cases}
+ $$
+  
+**Pourquoi ça marche ?**
+1. Espérance $\mu=a_0+a_1\mu+...+a_n\mu \implies a_0=(1-a_1-a_2-...-a_n)\mu$
+2. On réécrit $Y_t-\mu=a_1(Y_{t-1}-\mu)+...+a_n(Y_{t-n}-\mu)+e_t$
+3. On multiplie par $(Y_{t-\tau}-\mu)$, on prend l'espérance et on trouve : $C_Y(\tau)=a_1C_Y(\tau-1)+...+a_nC_Y(\tau-n)$ 
 
+## Méthode du maximum du vraisemblance
+
+On veut maximiser la vraisemblance
+
+**Cas AR(1) :** $Y_t=a_0+a_1Y_{t-1}+e_t$
+$\mathcal{L}=\mathcal{N}(\mu_y,\sigma_y^2)\times\prod_{t=2}^T\mathcal{N}(a_0+a_1y_{t-1},\sigma^2)$ où :
+- $\mu_y=\frac{a_0}{1-a_1}$
+- $\sigma_y^2=\frac{\sigma^2}{1-a_1^2}$ 
+**Justification :** 
+- $y_1$ suit une Gaussienne $\mathcal{N}(\mu_y, \sigma^2_y)$ 
+- $y_2\vert y_1$ suit $\mathcal{N}(a_0 + a_1y_1, \sigma^2)$ car $Y_2 = a_0 + a_1Y_1 + e_2$
+- La vraisemblance jointe se factorise en produit de conditionnelles
+On traite souvent $y_1$ comme une constante et on ne s'occupe que de maximiser le produit
+**Solution analytique :** $[a_0, a_1]ᵀ = [\text{matrice} 2\times2]^{-1} \times [\text{vecteur}] \sigma^2 = \sum\frac{(y_t - a_0 - a_1y_{t-1})^2}{T-1}$  
+
+**Cas AR(n) :** 
+$\mathcal{L}=\mathcal{N}(y_n,...,y_1 \vert \mu, \Phi) \times \prod_{t=n+1}^T\mathcal{N}(y_t\vert a_0 + \sum a_i×y_{t-i}, \sigma^2)$ où :
+- $\Phi$ est la matrice de covariance des $n$ premières observations
+
+## Méthode Bayésienne
+
+- **Prior** : $[a_0, a_1, ..., a_n, \sigma^2] = \mathrm{InvGamma}(\sigma^2 | \beta, \frac{\beta}{v}) \times \prod \mathcal{N}(a_i | m, \tau^2)$  
+- **Vraisemblance :** même que pour le maximum de vraisemblance
+- **Posterior :** $[paramètres \vert données] \propto [données \vert paramètres] \times [paramètres]$
+
+## Modèles AR hiérarchiques
+
+**Structure à deux niveaux**
+
+**Équation de données** : $Z_t = H_t × Y_t + e^z_t$
+
+- $Z_t$ : données observées
+- $Y_t$ : état latent (non observé)
+- $H_t$ : matrice de mesure
+- $e^z_t$ : bruit d'observation, $\mathrm{Cov} = \sum_t^Z$
+
+**Équation d'état** : $Y_t = M_t × Y_{t-1} + e^y_t$
+
+- $M_t$ : matrice de transition
+- $e^y_t$ : bruit de processus, $\mathrm{Cov} = \sum^Y_t$
+
+### Applications
+
+**Lissage (Smoothing)** : $\mathrm{E}[Y_t | Z_1, ..., Z_t]$
+
+- Estimation de l'état à $t$ avec observations jusqu'à $t$
+
+**Prédiction** : $\mathrm{E}[Y_{t+\tau} | Z_1, ..., Z_t]$
+
+- Prévision $\tau$ pas dans le futur
+- L'incertitude augmente avec $\tau$
+
+#Exemple Prédiction de température dans le Pacifique
+- **Données :** $Z_t = H\times\alpha_t + e^z_t$
+- **Modèle :** $\alpha_{t+\tau} = M\times\alpha_t + e^\alpha_t$
+
+# Estimation des modèles MA et ARMA
+
+La **méthode des moments** est moins précise pour MA et ARMA.
+
+On utilise plutôt :
+- **Maximum de vraisemblance**
+- **Approche bayésienne**
+
+L'approche est similaire à celle des modèles AR, mais les calculs sont plus complexes car on doit aussi estimer les erreurs passées $e_{t-1}$, $e_{t-2}$, ...
 
 ---
 
