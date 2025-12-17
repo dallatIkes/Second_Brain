@@ -76,7 +76,7 @@ $\frac{\partial\epsilon}{\partial Y}=B$
 ##### Exercice 2
 
 > Considérons le modèle :
-> $y=\rho wy+XB+\epsilon$, $\epsilon\sim\mathcal{N}(\epsilon|0, \sigma^2I)$, $rho$ scalaire, $w$ matrice, $B$ vecteur, $X$ matrice
+> $y=\rho wy+XB+\epsilon$, $\epsilon\sim\mathcal{N}(\epsilon|0, \sigma^2I)$, $\rho$ scalaire, $w$ matrice, $B$ vecteur, $X$ matrice
 > Écrire la vraisemblance 
 
 $y-\rho wy-XB=\epsilon$
