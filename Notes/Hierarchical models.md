@@ -57,31 +57,31 @@ Le but principale de l'**[[Bayesian inference|Inférence Bayésienne]]** est de 
 
 ##### Exercice 1
 
->$\epsilon\sim\mathcal{N}(\epsilon|0, \sigma^2I)$ 
+>$\varepsilon\sim\mathcal{N}(\varepsilon|0, \sigma^2I)$ 
 >$Y,X$ des vecteurs
 >$A,B$ des matrices
->$BY=AX+\epsilon$ 
+>$BY=AX+\varepsilon$ 
 >**Calculer la PDF $f_y(y)$**
 
 Supposons $B$ inversible
-$B^{-1}BY=IY=Y=B^{-1}(AX+\epsilon)$  
+$B^{-1}BY=IY=Y=B^{-1}(AX+\varepsilon)$  
 
->$f_\epsilon(\epsilon)=\frac{1}{(2\pi\sigma^2)^{d/2}}\exp({\frac{-\epsilon^t\epsilon}{2\sigma^2}})$
+>$f_\varepsilon(\varepsilon)=\frac{1}{(2\pi\sigma^2)^{d/2}}\exp({\frac{-\varepsilon^t\varepsilon}{2\sigma^2}})$
 >**Calculer $f_y(y)$**
 
-On fait un changement de variable : $\epsilon=BY-AX$ 
+On fait un changement de variable : $\varepsilon=BY-AX$ 
 Ainsi : $f_y(y)=\frac{\mid\det B\mid}{(2\pi\sigma^2)^{d/2}}\exp(-\frac{(BY-AX)^t(BY-AX)}{2\sigma^2})$ 
-$\frac{\partial\epsilon}{\partial Y}=B$ 
+$\frac{\partial\varepsilon}{\partial Y}=B$ 
 
 ##### Exercice 2
 
 > Considérons le modèle :
-> $y=\rho wy+XB+\epsilon$, $\epsilon\sim\mathcal{N}(\epsilon|0, \sigma^2I)$, $\rho$ scalaire, $w$ matrice, $B$ vecteur, $X$ matrice
+> $y=\rho wy+XB+\varepsilon$, $\varepsilon\sim\mathcal{N}(\varepsilon|0, \sigma^2I)$, $\rho$ scalaire, $w$ matrice, $B$ vecteur, $X$ matrice
 > Écrire la vraisemblance 
 
-$y-\rho wy-XB=\epsilon$
-$y(I-\rho W)-XB=\epsilon$
-$f_\epsilon(\epsilon)=\frac{1}{(2\pi\sigma^2)^{d/2}}\exp(-\frac{\epsilon^t\epsilon}{2\sigma^2})$ 
+$y-\rho wy-XB=\varepsilon$
+$y(I-\rho W)-XB=\varepsilon$
+$f_\varepsilon(\varepsilon)=\frac{1}{(2\pi\sigma^2)^{d/2}}\exp(-\frac{\varepsilon^t\varepsilon}{2\sigma^2})$ 
 $f_y(y)=\frac{\mid\det(I-\rho w)\mid}{(2\pi\sigma^2)^{d/2}}\exp(-\frac{[(I-\rho w)y-XB]^t[(I-\rho w)y-XB]}{2\sigma^2})$ 
 
 ##### Exercice 3 
