@@ -157,7 +157,7 @@ On a $Y_t=a_0+a_1Y_{t-1}+a_2Y_{t-2}+...+a_nY_{t-n}+e_t$
  \end{cases}
  $$
   
-**Pourquoi ça marche ?**
+**Pourquoi ça marche ?**  
 1. Espérance $\mu=a_0+a_1\mu+...+a_n\mu \implies a_0=(1-a_1-a_2-...-a_n)\mu$
 2. On réécrit $Y_t-\mu=a_1(Y_{t-1}-\mu)+...+a_n(Y_{t-n}-\mu)+e_t$
 3. On multiplie par $(Y_{t-\tau}-\mu)$, on prend l'espérance et on trouve : $C_Y(\tau)=a_1C_Y(\tau-1)+...+a_nC_Y(\tau-n)$ 
@@ -227,11 +227,4 @@ On utilise plutôt :
 - **Approche bayésienne**
 
 L'approche est similaire à celle des modèles AR, mais les calculs sont plus complexes car on doit aussi estimer les erreurs passées $e_{t-1}$, $e_{t-2}$, ...
-
----
-
-# [[Variogram]] 
-
-# [[Kriging]]
-
 

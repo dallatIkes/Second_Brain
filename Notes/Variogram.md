@@ -1,4 +1,18 @@
-mesure de similarité, prise en compte de la distance (et de l'orientation si [[Isotrope vs Anisotrope|anisotrope]])
+#Motivation Prédire la température à une position géographique $s_0$ à partir de températures mesurées à d'autres positions.
+
+## Semi-variogramme
+
+Le **semi-variogramme** $\gamma(h)$ mesure la variance entre deux points séparés par une distance $h$ :
+$$\gamma(h)=\frac{1}{2}\mathrm{Var}[Z(s)-Z(u)]=\frac{1}{2}\int\int(Z(s)-Z(u))^2f(s,u)dsdu$$avec $h=\lvert s-u\rvert$ 
+
+## Estimateur empirique
+
+En notant $N(h)$ le nombre de paires d'observations séparées par $h$, on a : 
+$$\hat{\gamma}(h)=\frac{1}{2N(h)}\sum_{i=1}^{N(h)}[Z(s_i)-Z(s_i+h)]^2$$où $h$ est une distance dans le cas [[Isotrope vs Anisotrope|isotrope]] et un vecteur dans le cas [[Isotrope vs Anisotrope|anisotrope]]
+
+![[Isotrope vs Anisotrope]]
+
+Mesure de similarité, prise en compte de la distance (et de l'orientation si [[Isotrope vs Anisotrope|anisotrope]])
 variance négative possible dans le cas spatial
 
 #Notation $z(s_i) = z_i$, $z(s_j)=z_j$

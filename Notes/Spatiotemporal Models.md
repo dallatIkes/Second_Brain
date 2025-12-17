@@ -6,3 +6,9 @@
 - Prédiction : $\hat{Y}=\sum_iA_{t-i}\hat{Y}_{t-i}+\epsilon_t$ 
 
 
+# [[Variogram]] 
+
+# [[Kriging]]
+
+
+
