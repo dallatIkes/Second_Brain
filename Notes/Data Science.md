@@ -12,8 +12,8 @@ aliases:
 ![[Pasted image 20250821131955.png]]
 ### Lien avec l’[[AI|IA]]
 - **[[Machine Learning]] (ML)** : apprentissage à partir de données, sans programmation spécifique.
-- **Supervisé** : labels connus, tâches de [[Classification|classification]]/[[Regression|régression]] ([[SVM]], Random Forest, Deep Learning).
-- **Non-supervisé** : pas de labels, découverte de structures ([[Clustering]], ACP, t-SNE, règles d’association).
+- **Supervisé** : labels connus, tâches de [[Classification|classification]]/[[Regression|régression]] ([[Support Vector Machine|SVM]], Random Forest, Deep Learning).
+- **Non-supervisé** : pas de labels, découverte de structures ([[Clustering]], [[ACP]], [[t-SNE]], règles d’association).
 - **Semi-supervisé** : peu de données annotées + beaucoup de non annotées (pseudo-labeling).
 - **Renforcement** : agent ↔ environnement, politique pour maximiser récompense (Q-learning, PPO).
 - **Auto-supervisé** : prétextes sur données non étiquetées (BERT, SimCLR) pour apprendre des représentations transférables.  
@@ -69,9 +69,9 @@ aliases:
   - Projection (transformer dans sous-espace plus petit).  
 
 ### Techniques
-- **ACP (PCA)** : projection linéaire maximisant la variance (compression/visualisation).  
-- **t-SNE** : projection non linéaire, conserve voisinage local (NLP, images).  
-- **UMAP** : rapide, scalable, conserve structure globale et locale (bioinformatique).  
+- **[[ACP]] (PCA)** : projection linéaire maximisant la variance (compression/visualisation).  
+- **[[t-SNE]]** : projection non linéaire, conserve voisinage local (NLP, images).  
+- **[[UMAP]]** : rapide, scalable, conserve structure globale et locale (bioinformatique).  
 
 ---
 
@@ -171,7 +171,7 @@ aliases:
   - Support séquentiel : proportion de séquences contenant un motif.
   - Confiance séquentielle : probabilité qu’un événement suive une séquence.
 - **Algorithmes** :
-  - [[PrefixSpan Algorithm|PrefixSpan]] : projection par préfixe, rapide et efficace.
+  - **[[PrefixSpan Algorithm|PrefixSpan]]** : projection par préfixe, rapide et efficace.
   - **[[SPADE Algorithm|SPADE]]** : représentation verticale, expansion par jointures.
   - **[[EMMA Algorithm|EMMA]]** : motifs séquentiels avec contraintes temporelles.
 
@@ -210,3 +210,9 @@ Hypothèse à accepter ou rejeter
 # Thème 4 - [[Clustering]]
 
 ![[Clustering]]
+
+---
+
+# Thème 5 - [[Agrégation Avancée]]
+
+![[Agrégation Avancée]]

@@ -49,7 +49,7 @@ Montrant par exemple que $k(x,x')=\exp(-\frac{\lVert x-x'\rVert^2}{2\sigma^2})$ 
 ## Noyaux Classiques
 
 - **Noyau polynomial :** $$k(x,x')=(x^Tx'+C)^M  \hspace{20pt}\text{(plus $M$ est grand, plus le noyau a de la capacité)}$$
-- **Noyau gaussien :** $$k(x,x')=\exp(-\frac{\lVert x-x'\rVert^2}{2\sigma^2}) \hspace{20pt}\text{(plus $\sigma^2$ est petit, plus le noyau a de la capacité)}$$
+- **Noyau gaussien :** $$k(x,x')=\exp(-\frac{\lVert x-x'\rVert^2}{2\sigma^2}) \hspace{20pt}\text{(plus $\sigma^2$ est petit, plus le noyau a de la capacité)}$$^rbf
 ## Résumé
 
 ![[Pasted image 20251212104657.png]]
