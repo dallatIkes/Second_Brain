@@ -56,6 +56,49 @@ L'idée est donc de **minimiser la coupe** :
 
 ---
 
+# Projected [[Clustering]]
+
+## Concept de base
+
+#Contexte Données de très grande dimension $m$ où seulement un sous-ensemble de dimensions $d\ll m$ est pertinent pour un cluster donné
+
+#Principe Trouver simultanément : 
+- le cluster $C_k$
+- le sous-espace de caractéristiques $S_k$ qui définit $C_k$
+Dans un espace où notre cluster est compact dans seulement seulement $d$ des $m$ dimensions, les $(m-d)$ autres dimensions sont du bruit que le [[Clustering|clustering]] projeté ignore.
+
+On introduit le concept de **médoïde** qui est **le point le plus central du cluster** (i.e. celui qui minimise la dissimilarité moyenne). Contrairement à un **centroïde**, le **médoïde** est toujours un point réel du jeu de données.
+
+## PROCLUS
+
+Plusieurs approches sont possibles (CLIQUE basée sur les hyper-rectangles, approche par hyper-graphe), mais celle qui nous intéresse le plus par son efficacité est **PROCLUS** :
+
+**Entrées :** 
+- ensemble de données $X\in\mathbb{R}^{n\times m}$ 
+- nombre de cluster $K$
+- nombre moyen de dimensions pertinentes par cluster $d$
+**Sortie :** Partition des données en $K$ clusters, chacun défini dans un sous-espace propre
+**Limitations :** forte dépendances à $d$ et difficile à appliquer sur des données de très grande dimension
+
+### Algorithme
+
+1. **Sélection des médoïdes candidats :** on choisit aléatoirement les centres initiaux
+2. **Choix des médoïdes :** on sélectionne les $K$ médoïdes qui maximisent une heuristique de dispersion (on veut qu'ils soient les plus éloignés possible)
+3. **Détermination des sous-espaces :** pour chaque médoïde $m_k$ on identifie les dimensions pertinentes :
+	- On un cluster provisoire formé des points qui lui sont proches (distance sous un seuil)
+	- On calcule la variance par dimension de ces points
+	- On retient au maximum $d$ dimensions où la variance est faible (donc pertinentes pour ce cluster), ce sous-espace de dimensions de $m_k$ est noté $S_k$ 
+4. **Affectation des points :** pour chaque point $x_i$, on calcule sa distance projetée avec $m_k$ et lui assigne le cluster le plus proche (selon l'implémentation il est possible de le laisser non affecté si la distance avec tous les $m_k$ dépasse un seuil)
+5. **Raffinement itératif :** en recherche de stabilité, on recalcule pour chaque cluster un nouveau médoïde qui minimise la dissimilarité globale et on recalcule les dimensions pertinentes pour ensuite réaffecter les points selon les distances projetées dans ces nouveaux sous-espaces
+
+### Métriques
+
+- **Distance Manhattan :** pour calculer la distance séparant $x_i$ de $m_k$ dans $S_k$ $$\mathrm{dist}(x_i,m_k)=\sum_{j\in S_k}\lvert x_{ij}-m_{kj}\rvert$$
+- **Variance par dimension :** pour chaque médoïde $m_k$ et ses voisins $\mathcal{N}_k$ $$\mathrm{Var}_j(m_k)=\frac{1}{\lvert\mathcal{N}_k\rvert}\sum_{x_i\in\mathcal{N}_k}(x_i-\mu_k^{(k)})^2$$avec $\mu_k^{(k)}$ la moyenne des valeurs sur la dimension $j$ pour $x_i\in\mathcal{N}_k$ 
+- **Score de qualité (optionnel) :** pour évaluer la compacité des clusters $$\mathrm{score}(m_k)=\frac{1}{\lvert\mathcal{N}_k\rvert}\sum_{x_i\in\mathcal{N}_k}\mathrm{dist}(x_i, m_k)$$
+---
+
+
 
 
 
