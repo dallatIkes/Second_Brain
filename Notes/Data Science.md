@@ -77,11 +77,11 @@ aliases:
 
 ## 5. Mesures de similarité
 - **Numériques** :
-  - Euclidienne, Manhattan, Minkowski, Mahalanobis (prend en compte corrélation).  
+  - [[Euclidean distance|Euclidienne]], [[Taxicab distance|Manhattan]], Minkowski, Mahalanobis (prend en compte corrélation).  
 - **Binaires** :
   - SMC (similarité simple), Jaccard (ignore N00).  
 - **Autres** :
-  - Cosinus (angle entre vecteurs).  
+  - [[Cosine similarity|Cosinus]] (angle entre vecteurs).  
   - Corrélation de Pearson (mesure linéaire, ∈ \[−1, 1\]).  
 
 ---
@@ -216,3 +216,9 @@ Hypothèse à accepter ou rejeter
 # Thème 5 - [[Agrégation Avancée]]
 
 ![[Agrégation Avancée]]
+
+---
+
+# Thème 6 - [[Recommendation system|Système de recommendation]]
+
+![[Recommendation system]]
