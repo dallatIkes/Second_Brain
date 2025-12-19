@@ -222,3 +222,8 @@ Hypothèse à accepter ou rejeter
 # Thème 6 - [[Recommendation system|Système de recommendation]]
 
 ![[Recommendation system]]
+
+---
+# Thème 7 - [[Web Exploration|Exploration du Web]]
+
+![[Web Exploration]]
