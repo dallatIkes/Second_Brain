@@ -51,7 +51,7 @@ Le problème avec les perceptrons uni-couche est qu'il ne peuvent approximer que
 
 Chaque couche cachée a également son **intercept** et prend en entrée la sortie de la **couche précédente**
 
-La mise à jour des poids se fait par le **règle de chaîne (backpropagation)** : $$
+La mise à jour des poids se fait par le **règle de chaîne (backpropagation)**  (en utilisant la méthode [[SGD]] par exemple) : $$
 \begin{align}
 \Delta w_{ld} &= \alpha\frac{\partial E^{(i)}}{\partial w_{ld}} \\
 &= \alpha \frac{\partial E^{(i)}}{\partial h}\times\frac{\partial h^{(i)}}{\partial f_l}\times\frac{\partial f_l^{(i)}}{\partial w_{ld}} \\
@@ -59,3 +59,14 @@ La mise à jour des poids se fait par le **règle de chaîne (backpropagation)**
 \end{align}$$Preuve :
 ![[Pasted image 20251212124152.png]]
 
+---
+
+# Fonction d'activation
+
+Ce sont les fonctions d'activation qui permettent l'introduction de la non-linéarité dans les [[Neural networks#Perceptron multi-couches|couches cachées]]. Elle transforment la sortie d'un perceptron en une valeur activée permettant l'apprentissage de frontières de décision non linéaires.
+
+**Exemples :** 
+- **sigmoïde :** $\phi(z_k)=\frac{1}{1+e^{-z_k}}$ 
+- **tanh :** $\phi(z_k)=\tanh(z_k)$
+- **ReLU :** $\phi(z_k)=\max(0,z_k)$
+![[Pasted image 20251218210207.png]]

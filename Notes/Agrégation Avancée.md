@@ -98,10 +98,46 @@ Plusieurs approches sont possibles (CLIQUE basée sur les hyper-rectangles, appr
 - **Score de qualité (optionnel) :** pour évaluer la compacité des clusters $$\mathrm{score}(m_k)=\frac{1}{\lvert\mathcal{N}_k\rvert}\sum_{x_i\in\mathcal{N}_k}\mathrm{dist}(x_i, m_k)$$
 ---
 
+# Détection d'anomalie
 
+## Contexte
 
+Identifier les observations inhabituelles ou inattendues appelées **outliers**. Face à la [[Curse of dimensionality|malédiction de la dimensionnalité]], les anomalies ne sont plus évidentes et les méthodes classiques ([[k-NN]], [[GMM]], [[Isolation Forest]]) qui reposent sur les **distances** voient leur efficacité chuter. Parmi les méthodes capables de capturer la structure des données se trouvent les **[[Autoencoder|auto-encodeurs]]**, robustes à la [[Curse of dimensionality|malédiction de la dimensionnalité]] car ils apprennent à projeter les données dans un espace latent de faible dimension tout en conservant les structures essentielles.
 
+## Anomalie
 
+Une anomalie est une donnée qui **s'écarte significativement du comportement attendu** ce qui peut révéler : 
+- un **problème critique** (panne, fraude, intrusion)
+- un **événement rare** mais **important** (découverte)
+On peut les classes en plusieurs catégories comme : 
+- les **anomalies ponctuelles :** un transaction bancaire très élevée et inhabituelle
+- les **anomalies contextuelles :** forte consommation électrique pour un chauffage en été
+- les **anomalies collectives :** une séquence rapide de tentatives de connexion échouées
+
+Exemples
+![[Pasted image 20251218190350.png]]
+
+---
+## [[Isolation Forest]]
+
+![[Isolation Forest]]
+
+---
+## [[GMM]]
+
+![[GMM]]
+
+---
+
+## [[Autoencoder|Auto-encodeurs]] 
+
+![[Autoencoder|Auto-encodeurs]]
+
+---
+
+# Résumé
+
+![[Pasted image 20251218213259.png]]
 
 
 
