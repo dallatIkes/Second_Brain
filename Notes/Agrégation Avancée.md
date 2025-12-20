@@ -93,7 +93,7 @@ Plusieurs approches sont possibles (CLIQUE basée sur les hyper-rectangles, appr
 
 ### Métriques
 
-- **Distance Manhattan :** pour calculer la distance séparant $x_i$ de $m_k$ dans $S_k$ $$\mathrm{dist}(x_i,m_k)=\sum_{j\in S_k}\lvert x_{ij}-m_{kj}\rvert$$
+- **[[Taxicab distance|Distance Manhattan]] :** pour calculer la distance séparant $x_i$ de $m_k$ dans $S_k$ $$\mathrm{dist}(x_i,m_k)=\sum_{j\in S_k}\lvert x_{ij}-m_{kj}\rvert$$
 - **Variance par dimension :** pour chaque médoïde $m_k$ et ses voisins $\mathcal{N}_k$ $$\mathrm{Var}_j(m_k)=\frac{1}{\lvert\mathcal{N}_k\rvert}\sum_{x_i\in\mathcal{N}_k}(x_i-\mu_k^{(k)})^2$$avec $\mu_k^{(k)}$ la moyenne des valeurs sur la dimension $j$ pour $x_i\in\mathcal{N}_k$ 
 - **Score de qualité (optionnel) :** pour évaluer la compacité des clusters $$\mathrm{score}(m_k)=\frac{1}{\lvert\mathcal{N}_k\rvert}\sum_{x_i\in\mathcal{N}_k}\mathrm{dist}(x_i, m_k)$$
 ---
