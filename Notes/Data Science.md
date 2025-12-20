@@ -184,12 +184,13 @@ aliases:
 ## Test d'hypothèse
 
 Hypothèse à accepter ou rejeter
-
+On nomme $H_0$ l'hypothèse nulle
 ### Types d'erreurs
 
-**Erreur de type 1 :**
+- **Erreur de type 1 :** Rejeter à tort $H_0$ (faux positif) 
+- **Erreur de type 2 :** Accepter à tort $H_0$ (faux négatif)
+![[Pasted image 20251220062308.png]]
 
-**Erreur de type 2 :** 
 
 ### Test Binomial
 
