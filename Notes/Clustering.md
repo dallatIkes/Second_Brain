@@ -9,7 +9,7 @@ $C$ peut être représenté par une matrice $U \in \{0,1\}^{n\times K}$ telle qu
 Exemple de clustering par partition dure : [[K-means]]
 Exemple de clustering par partition floue : [[Fuzzy C-means]]
 
-# Clustering Hiérarchique
+# [[Clustering]] Hiérarchique
 
 Une autre méthode est le clustering hiérarchique : on génère une **structure arborescente** de partitions emboîtées représentant différents niveaux de granularité dans l'organisation des données. Il existent deux grandes familles : 
 - la méthode agglomérative (**ascendante**) : fusion progressive
@@ -27,3 +27,8 @@ Les structures hiérarchiques obtenues peuvent être représentées par des **de
 ![[Pasted image 20251214220305.png]]
 
 
+# [[Clustering]] basé sur la densité
+
+Les méthodes de [[Clustering|clustering]] classiques ne permettent pas d'identifier des clusters de forme non sphérique (structures étirées, linéaires, ...). Il existe une solution : [[DBSCAN]]
+
+![[DBSCAN]]
