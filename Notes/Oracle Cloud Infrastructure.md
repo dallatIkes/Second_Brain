@@ -245,7 +245,7 @@ Auto-Tiering $\rightarrow$ automatically sets the data object tier
 Persistant and durable storage
 
 **Tiers :**
-- lower cost (e.g. [[Base de données|db]] housing)
+- lower cost (e.g. [[Bases de données|db]] housing)
 - balanced (e.g. boot disk)
 - higher performance (most demanding workloads)
 - ultra high performance (highest demanding [[IO]] workloads e.g. [[Modèle relationnel|relational db]])

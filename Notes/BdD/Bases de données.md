@@ -4,6 +4,7 @@ aliases:
   - db
   - bdd
   - BdD
+  - database
 ---
 ---
 

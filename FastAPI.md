@@ -97,3 +97,11 @@ class Book(BaseModel):
 
 # Working with data
 
+- Data handling is the backbone of any web application
+- [[SQL]] vs [[NoSQL]]
+- [[CRUD]] operations
+
+## [[SQLAlchemy]]
+
+![[SQLAlchemy]]
+

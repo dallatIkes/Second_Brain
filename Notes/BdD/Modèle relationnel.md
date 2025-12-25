@@ -577,7 +577,7 @@ Une relation om toute DF a une clé en partie gauche.
 En pratique, on impose au minimum la 3NF  
 #Remarque BCNF $\implies$ 3NF (mais la réciproque n'est pas vraie)  
 #Exemple illustrant les avantages de la 3NF  
-[[Base de données]] comportant des informations sur des machines et des ateliers. On considère 2 schémas :
+[[Bases de données]] comportant des informations sur des machines et des ateliers. On considère 2 schémas :
 - (1) $Matériel(\underline{num\_M}, type\_M, num\_A, nom\_A, nbre\_A, chef\_A)$  
 les attributs représentent respectivement : le numéro de machine, le type de machine, le numéro de l'atlier, le nom de l'atlier, le nombre de personnes dans l'atelier et le nom du chef d'atelier.
 - (2) $Machine(\underline{num\_M}, type\_M, num\_A)$  et  $Atelier(\underline{num\_A}, nom\_A, nbre\_A, chef\_A)$  
