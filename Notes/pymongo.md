@@ -1,0 +1,1 @@
+Official low-level [[MongoDB]] [[Python]] driver providing direct interaction using [[MongoDB]]'s query language while an [[ORM]] is an abstraction layer used to map [[Objet|objects]] from object-oriented programming languages to tables in a [[Modèle relationnel|relational]] [[Bases de données|database]] 

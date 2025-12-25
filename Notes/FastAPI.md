@@ -105,3 +105,9 @@ class Book(BaseModel):
 
 ![[SQLAlchemy]]
 
+## [[MongoDB]]
+
+![[MongoDB]]
+
+## Working with data validation ans serialization
+

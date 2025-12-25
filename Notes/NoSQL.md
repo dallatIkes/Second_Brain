@@ -1,0 +1,1 @@
+[[NoSQL]] [[Bases de données|databases]] differ from traditional [[SQL]] [[Bases de données|databases]] in that they often allow for more dynamic and flexible data models. [[MongoDB]] for example store data in binary [[JSON]] (BSON)
