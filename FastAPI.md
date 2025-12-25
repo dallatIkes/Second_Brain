@@ -80,7 +80,7 @@ async def read_books(year: int = None):
 	return {"books": ["All Books"]}
 ```
 
-## Defining ans using request and response models
+## Defining and using request and response models
 
 **Pydantic** models are a powerful feature for data validation and conversion
 
@@ -94,4 +94,6 @@ class Book(BaseModel):
 ```
 
 ---
+
+# Working with data
 
