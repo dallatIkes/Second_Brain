@@ -1,3 +1,12 @@
+---
+aliases:
+  - Base de données
+  - db
+  - bdd
+  - BdD
+---
+---
+
 #Introduction Une base de donnée ([[Bases de données|BdD]]) est un [[Ensemble]] structuré de données représentant un sous-ensemble du monde réel (entreprise) pouvant être partagé par plusieurs applications.
 
 #Exemple entreprise = université, données = liste des inscrits; antécédents des étudiants; liste des cours; liste des enseignants; etc... , application: gestion des inscriptions; planning des salles; composition des jurys; etc... Une [[Bases de données|BdD]] contient des informations sur les objets du monde réel et sur les relations entre ces objets.
