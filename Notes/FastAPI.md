@@ -82,7 +82,7 @@ async def read_books(year: int = None):
 
 ## Defining and using request and response models
 
-**Pydantic** models are a powerful feature for data validation and conversion
+**[[Pydantic]]** models are a powerful feature for data validation and conversion
 
 ```python
 from pydantic import BaseModel
@@ -110,4 +110,41 @@ class Book(BaseModel):
 ![[MongoDB]]
 
 ## Working with data validation ans serialization
+
+We use [[Pydantic]] for :
+- Data [[Serialization vs Deserialization|serialization]] ([[Pydantic]] models $\rightarrow$ [[JSON]])
+- Data [[Serialization vs Deserialization|deserialization]]
+- Data validation
+
+## Working with file uploads and downloads
+
+- **File uploads** can be handled with the `File` and `UploadFile` [[Classe|classes]]
+- **File downloads** can be handled with the `UploadFile` [[Classe|class]]
+
+## Handling asynchronous data operations
+
+Allows our app to handle multiple tasks concurrently which is well-suited for [[IO]] operations such as [[Bases de données|database]] interactions, file handling or network communication.
+
+Using asynchronous data operations can significantly improve our app performances (cf. [async_example](https://github.com/PacktPublishing/FastAPI-Cookbook/tree/main/Chapter02/async_example). Indeed, by not blocking the main [[Thread|thread]] while waiting for these operations to complete, the application remains responsive and capable of handling other incoming requests or tasks.
+
+Asynchronous data operations are handled by : 
+- [[SQLAlchemy]] with the [[asyncio]] library
+- [[pymongo]] with the [[motor]] package
+
+The best practices for using asynchronous programming in [[FastAPI]] are : 
+- [[IO]]-bound operations
+- [[Bases de données|Database]] transactions
+- Error handling
+- [[Test|Testing]]
+
+## Securing sensitive data and best practices
+
+[[FastAPI]] doesn't handle [[Cryptographie|encryption]] directly but libraries such as **bcrypt** or **passlib** can be used
+
+Some best practices when securing an application : 
+- Validation and sanitization
+- Access control
+- Secure communication
+- [[Bases de données|Database]] security
+- Regular updates
 

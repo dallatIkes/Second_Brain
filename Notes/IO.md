@@ -16,4 +16,4 @@ E---G(FilterOutputStream)
 G---H(DataOutputStream)
 ```
 
-- Sérialisation : écrire un objet ainsi que tous les objets qu'il référence dans un flux binaire (le procédé inverse est la désérialisation) $\to$ implémentation de l'[[Interface]] Serializable (sérialisation à l'aide de ObjectOutputStream et désérialisation à l'aide de ObjectInputStream).
+- [[Serialization vs Deserialization|Sérialisation|Sérialisation]] : écrire un objet ainsi que tous les objets qu'il référence dans un flux binaire (le procédé inverse est la [[Serialization vs Deserialization|désérialisation]]) $\to$ implémentation de l'[[Interface]] Serializable ([[Serialization vs Deserialization|sérialisation]] à l'aide de ObjectOutputStream et [[Serialization vs Deserialization|désérialisation]] à l'aide de ObjectInputStream).
