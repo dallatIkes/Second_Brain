@@ -317,3 +317,17 @@ def get_users(
 Tasks that need processing power but don't necessarily need to be completed by the same process can be enqueued in the `BackgroundTaasks` object.
 
 ---
+
+# Working with [[WebSocket]]
+
+```python
+from fastapi import WebSocket
+
+@app.websocket("/ws")
+async def ws_endpoint(websocket: WebSocket):
+	await websocket.accept()
+	await websocket.send_text("Welcome to the chat room!")
+	await websocket.close()
+```
+
+---
