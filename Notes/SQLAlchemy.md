@@ -87,7 +87,7 @@ This function does 3 critical things :
 [[FastAPI]] uses this with `Depends`
 ```python
 from fastapi import Depends, FastAPI
-from sqlalchemy import Session
+from sqlalchemy.orm import Session
 from database import SessionLocal
 
 app = FastAPI()
