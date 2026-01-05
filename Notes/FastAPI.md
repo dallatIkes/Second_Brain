@@ -179,6 +179,8 @@ def test_ping():
 
 [[Pytest]] can be used to test the app's logic
 
+Performance testing is also important to test the [[API]] in real-world usage scenarios. [[locust]] can be used to simulate high traffic
+
 ---
 
 # Versioning your [[API]]
@@ -272,3 +274,7 @@ Effective way to control access to an application by generating a unique key for
 
 - **On Login :** create a [[Cookie|cookie]] for the session
 - **On Logout :** delete the [[Cookie|cookie]]
+
+---
+
+
