@@ -184,4 +184,56 @@ def delete_user(
     return {"detail": "User deleted"}
 ```
 
+# Handling relationships in [[SQL]] [[Bases de données|Databases]] 
 
+Relationships are associations between two or more tables that allows complex data structures and queries across multiple tables.
+
+In the [[Modèle relationnel|relational model]] we only have foreign keys but with the [[Objet|object]] representation, we use relationships with the `back_populates` argument to synchronize both ends. It is the the real advantage of [[SQLAlchemy]] as an [[ORM]] and not only a [[SQL]] mapper.
+
+```python
+class User(Base):
+    __tablename__ = "users"
+    
+    id: Mapped[str] = mapped_column(
+        primary_key=True,
+        default=lambda: str(uuid.uuid4())
+    )
+    username: Mapped[str] = mapped_column(String(20), nullable=False)
+    hashed_password: Mapped[str] = mapped_column(String(50), nullable=False)
+
+    sent_recommendations: Mapped[list["Recommendation"]] = relationship(
+        back_populates="from_user",
+        foreign_keys="Recommendation.from_user_id"
+    )
+    received_recommendations: Mapped[list["Recommendation"]] = relationship(
+        back_populates="to_user",
+        foreign_keys="Recommendation.to_user_id"
+    )
+
+class Recommendation(Base):
+    __tablename__ = "recommendations"
+    
+    id: Mapped[int] = mapped_column(primary_key=True)
+    link: Mapped[str] = mapped_column(nullable=False)
+    from_user_id: Mapped[str] = mapped_column(
+        ForeignKey("users.id"),
+        nullable=False
+    )
+    to_user_id: Mapped[str] = mapped_column(
+        ForeignKey("users.id"),
+        nullable=False
+    )
+    created_at: Mapped[datetime.datetime] = mapped_column(
+        server_default=func.now(),
+        nullable=False
+    )
+    
+    from_user: Mapped["User"] = relationship(
+        back_populates="sent_recommendations",
+        foreign_keys=[from_user_id]
+    )
+    to_user: Mapped["User"] = relationship(
+        back_populates="received_recommendations",
+        foreign_keys=[to_user_id]
+    )
+```

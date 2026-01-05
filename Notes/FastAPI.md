@@ -101,14 +101,13 @@ class Book(BaseModel):
 - [[SQL]] vs [[NoSQL]]
 - [[CRUD]] operations
 
-## [[SQLAlchemy]]
+## [[SQL]] [[Bases de données|Databases]] : [[SQLAlchemy]]
 
 ![[SQLAlchemy]]
 
-## [[MongoDB]]
+## [[NoSQL]] [[Bases de données|Databases]] : [[MongoDB]]
 
 ![[MongoDB]]
-
 ## Working with data validation ans serialization
 
 We use [[Pydantic]] for :
