@@ -283,4 +283,37 @@ Effective way to control access to an application by generating a unique key for
 
 ---
 
+# Advanced Features and Best Practices
 
+## Implementing dependency injection
+
+A dependency is a function annotated with `Depends` that is called and resolved before executing the endpoint
+
+> Note : nested dependencies are possible
+
+```python
+@users_crud_router.get("/users")
+def get_users(
+    db: Session = Depends(get_db)
+):
+    """Reading all the users.
+    """
+    
+    return db.query(User).all()
+```
+
+## Creating custom [[Middleware|middleware]] 
+
+## Optimizing application performance
+
+[[pyinstrument]] can be used to create a profiler for the application to spot code bottlenecks (usual solutions require asynchronous programming, scaling workers, caching)
+
+## Implementing rate limiting
+
+[[slowapi]] can be used to control the traffic flows. It can be done by restricting the number of requests in a predetermined period according to [[Adresse IP|IP Address]] (2 req/min). It can be applied to specific endpoints or to the whole app.
+
+## Implementing background tasks
+
+Tasks that need processing power but don't necessarily need to be completed by the same process can be enqueued in the `BackgroundTaasks` object.
+
+---
