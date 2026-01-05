@@ -108,6 +108,13 @@ class Book(BaseModel):
 ## [[NoSQL]] [[Bases de données|Databases]] : [[MongoDB]]
 
 ![[MongoDB]]
+
+### Handling relationships in [[NoSQL]] [[Bases de données|Databases]]
+
+Two primary approches can be used :
+- **Embedding :** storing the data within the document (frequent access, more expensive in storage) (ex:  album)
+- **Referencing :** storing references using object IDs or other unique identifiers (better for many-to-one or many-to-many relationships) (ex: playlist)
+The issue here is to find a compromise between **complexity** (reading, operations, ...) and **flexibility** (less storage but more complex queries)
 ## Working with data validation ans serialization
 
 We use [[Pydantic]] for :
