@@ -193,5 +193,82 @@ More to learn on the topic at : https://www.postman.com/api-platform/api-version
 
 ---
 
+# [[Authentication]] and [[Authorization]]
+
+##  [[Authentication]]
+
+For [[Authentication]] [[Oauth2]] and [[JWT]]s can be used :
+
+1. **Authenticate the user (with their username and password)**
+2. **Create function to generate [[Token|token]]**
+3. **Create the `/token` endpoint that calls the [[Token|token]] creation function**
+4. **Use the `OAuth2PasswordBearer` [[FastAPI]] helper to extract the [[Token|token]] from the header**
+5. **Create the `/users/me` endpoint that decodes the [[Token|token]]**
+
+### Login endpoint
+
+```python
+@app.post("/token")
+def login(
+    form_data: OAuth2PasswordRequestForm = Depends(),
+    db: Session = Depends(get_db)
+):
+    user = db.query(User).filter(User.username == form_data.username).first()
+    if not user or not verify_password(form_data.password, user.hashed_password):
+        raise HTTPException(status_code=400, detail="Invalid credentials")
+
+    token = create_access_token({"sub": user.username})
+    return {"access_token": token, "token_type": "bearer"}
+```
+
+### Get current user from token
+
+```python
+def get_current_user(
+    token: str = Depends(oauth2_scheme),
+    db: Session = Depends(get_db)
+):
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        username: str = payload.get("sub")
+        if username is None:
+            raise HTTPException(status_code=401)
+    except JWTError:
+        raise HTTPException(status_code=401)
+
+    user = db.query(User).filter(User.username == username).first()
+    if user is None:
+        raise HTTPException(status_code=401)
+    return user
+```
+
+### Protected `/me` endpoint
+
+```python
+@app.get("/me")
+def read_me(current_user: User = Depends(get_current_user)):
+    return {
+        "id": current_user.id,
+        "username": current_user.username
+    }
+```
 
 
+## [[Authorization]]
+
+For [[Authorization]] [[RBAC]] needs to be setup :
+1. **Create the roles ([[Énumération|enum class]])** 
+2. **Check in the different endpoints for the role using the [[Token|token]]**
+
+## Implementing [[MFA]]
+
+[[pyotp]] can be used to implement [[TOTP]]
+
+## [[API]] key [[Authentication]]
+
+Effective way to control access to an application by generating a unique key for each user or service that need access to the [[API]]
+
+## Handling session [[Cookie|cookies]] and logout functionality
+
+- **On Login :** create a [[Cookie|cookie]] for the session
+- **On Logout :** delete the [[Cookie|cookie]]

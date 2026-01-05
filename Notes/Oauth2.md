@@ -1,0 +1,1 @@
+OAuth 2.0 (Open Authorization) is an industry-standard framework that allows third-party applications to get limited access to a user's data on another service (like Google or Facebook) without sharing their password, using access tokens for secure, delegated authorization

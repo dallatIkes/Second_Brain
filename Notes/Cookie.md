@@ -1,0 +1,3 @@
+Tiny text files created by a website and stored by your browser to identify your device.
+
+It is generally used to remember a users settings, login status, shopping cart content, etc...  
