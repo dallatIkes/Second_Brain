@@ -148,3 +148,50 @@ Some best practices when securing an application :
 - [[Bases de données|Database]] security
 - Regular updates
 
+---
+
+# Testing your [[API]]
+
+[[FastAPI]] has a built-in utility for testing the app's endpoints : `TestClient`
+
+```python
+# main.py
+from fastapi import FastAPI
+app = FastAPI()
+
+@app.get("/ping")
+def ping():
+    return {"message": "pong"}
+```
+
+```python
+# test_main.py
+from fastapi.testclient import TestClient
+from main import app  # Import your FastAPI application
+
+client = TestClient(app)
+
+def test_ping():
+    response = client.get("/ping")
+    assert response.status_code == 200
+    assert response.json() == {"message": "pong"}
+```
+
+[[Pytest]] can be used to test the app's logic
+
+---
+
+# Versioning your [[API]]
+
+There are many ways to version an [[API]], the most common ones are : 
+- **[[URL]] versioning :** The version number is included in the [[URL]] (ex: `https://example-api.com/v1/products`)
+- **Query parameter versioning :** The version number is now a query parameter (ex: `https://example-api.com/products?version=v1`)
+- **Header versioning :** The version number is passed as a header by the consumer
+- **Consumer-based versioning :** The user chooses the version at the first call, it it then stored in their information and is automatically used for the next requests (unless changed)
+
+More to learn on the topic at : https://www.postman.com/api-platform/api-versioning/
+
+---
+
+
+
