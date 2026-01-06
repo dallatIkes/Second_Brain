@@ -216,6 +216,8 @@ For [[Authentication]] [[Oauth2]] and [[JWT]]s can be used :
 ### Login endpoint
 
 ```python
+from fastapi.security import OAuth2PasswordRequestForm
+
 @app.post("/token")
 def login(
     form_data: OAuth2PasswordRequestForm = Depends(),
