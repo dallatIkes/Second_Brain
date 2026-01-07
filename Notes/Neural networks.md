@@ -50,6 +50,7 @@ Le problème avec les perceptrons uni-couche est qu'il ne peuvent approximer que
 ![[Pasted image 20251212123401.png]]
 
 Chaque couche cachée a également son **intercept** et prend en entrée la sortie de la **couche précédente**
+> Note : l'intercept des couche cachées n'est pas nécessaire si un preprocessing a eu lieu
 
 La mise à jour des poids se fait par le **règle de chaîne (backpropagation)**  (en utilisant la méthode [[SGD]] par exemple) : $$
 \begin{align}
