@@ -1,18 +1,18 @@
-# 🧠 Second_Brain — Notes & Concepts d’Informatique
+# 🧠 Second_Brain — Computer Science Notes & Concepts
 
-Ce dépôt contient un vault [Obsidian](https://obsidian.md/) regroupant des notes d’informatique : cours, notions théoriques, concepts découverts au fil de projets et explications reformulées pour faciliter la compréhension. L’objectif est de centraliser l’information, créer des liens entre les idées et disposer d’un espace d’apprentissage évolutif.
+This repository contains an [Obsidian](https://obsidian.md/) vault that gathers computer science notes: courses, theoretical notions, concepts discovered through projects, and reworded explanations to make them easier to understand. The goal is to centralize knowledge, create links between ideas, and maintain an evolving learning space.
 
-## 🗂️ Utilisation avec Obsidian
+## 🗂️ Using it with Obsidian
 
-Les fichiers peuvent être lus directement sur GitHub, mais le vault est conçu pour être utilisé avec Obsidian, afin de profiter du système de backlinks et de la vue graphe, particulièrement utiles pour visualiser les relations entre concepts.
+The files can be read directly on GitHub, but the vault is designed to be used with Obsidian in order to take advantage of the backlink system and the graph view, which are especially useful for visualizing relationships between concepts.
 
-## 📚 Contenu
+## 📚 Content
 
-- Résumés et fiches de cours  
-- Notes personnelles et vulgarisation de notions techniques  
-- Schémas et liens entre différents sujets  
-- Organisation par fichiers Markdown interconnectés
+- Summaries and course sheets  
+- Personal notes and simplified explanations of technical concepts  
+- Diagrams and links between different topics  
+- Organization based on interconnected Markdown files  
 
 ## 🔄 Structure
 
-Chaque note est un fichier Markdown relié aux autres via des liens internes, formant un ensemble cohérent fonctionnant comme un “second cerveau” numérique.
+Each note is a Markdown file linked to others through internal links, forming a coherent system that works like a digital “second brain.”
