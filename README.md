@@ -1,3 +1,5 @@
+[![Français](https://img.shields.io/badge/README-Français-blue?style=for-the-badge)](README-FR.md)
+
 # 🧠 Second_Brain — Computer Science Notes & Concepts
 
 This repository contains an [Obsidian](https://obsidian.md/) vault that gathers computer science notes: courses, theoretical notions, concepts discovered through projects, and reworded explanations to make them easier to understand. The goal is to centralize knowledge, create links between ideas, and maintain an evolving learning space.
