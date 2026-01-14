@@ -18,3 +18,9 @@ algo utilisant une heuristique admissible -> garantit de trouver une solution op
 ex: A* -> Best-First-Search 
 
 ex: Théorie des jeux : jeu des 7 allumettes : MINMAX + $\alpha \beta$ 
+
+---
+
+# [[MDP|Markov Decision Process]]
+
+![[MDP]]
