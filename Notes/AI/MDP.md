@@ -54,6 +54,7 @@ ainsi $Q(s,a)=\sum_{s'\in S}P(s'\vert s,a)[R(s,a,s')+\gamma\underset{a'\in A(s')
 On a donc : 
 - $U^*(s)=\underset{a\in A(s)}{\max}Q(s,a)$ 
 - $\pi^*(s)=\underset{a\in A(s)}{\arg\max}Q(s,a)$ 
+
 ### Algorithme Value Iteration
 
 1. Initialiser $U(s)$ à $0$ pour chaque état $s$
@@ -72,3 +73,7 @@ On choisit l'action qui maximise l'espérance des sommes des récompenses future
 	2. $\forall s\in S$, résoudre le système de $\lvert S\rvert$ équations et $\lvert S\rvert$ inconnues pour calculer $U^\pi(s)$ 
 	3. $a^*=\underset{a\in A(s)}{\arg\max}Q(s,a)$ et si $Q(s,a^*)\gt Q(s,\pi(s))$ alors $\pi'(s)\leftarrow a^*$ sinon $\pi'(s)\leftarrow \pi(s)$ 
 3. Retourner $\pi$
+
+### Modified Policy Iteration
+
+Injecter l'algorithme de Value Iteration à l'étape 2 de l'algorithme de Policy Iteration pour ne pas avoir à résoudre le système d'équations

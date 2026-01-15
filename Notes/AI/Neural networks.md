@@ -13,7 +13,7 @@ Il possède un **vecteur d'entrée** de réels $x=(x_1,x_2,...,x_D)$ qui peut pr
 Pour chaque entrée $x_d$ on associe un **poids (synaptique)** $w_d$ 
 
 La sortie $\hat{y}$ est une **somme pondérée des entrées** : $$\hat{y}=f(x)=w_0+\sum_{d=1}^Dw_dx_d$$$w_0$ est appelé **intercept** :
-![[Notes/Regression#^372119]]
+![[Notes/AI/Regression#^372119]]
 
 ![[Screenshot from 2025-12-12 12-00-30.png]]
 
@@ -71,3 +71,17 @@ Ce sont les fonctions d'activation qui permettent l'introduction de la non-liné
 - **tanh :** $\phi(z_k)=\tanh(z_k)$
 - **ReLU :** $\phi(z_k)=\max(0,z_k)$
 ![[Pasted image 20251218210207.png]]
+
+---
+
+Suite à une bonne initialisation, un [[Neural networks|Réseau de neurones]] doit fonctionner de façon aléatoire, càd attribuer une probabilité égale à chaque classe. Cela est nécessaire pour éviter que l'[[Cross entropy|entropie croisée]] n'explose. En effet, si ce n'est pas le cas, et qu'on a une probabilité très faible, son $-\ln$ va exploser.
+
+$\text{Loss}=\text{data\_term}+\lambda\ \text{regul}$ 
+- $\text{data\_term}$ : [[Cross entropy|entropie croisée]], [[Hinge Loss]], ...
+- $\text{regul}$ : $L_1$, $L_2$, ...
+
+**Dropout :** forcer à zéro certains neurones de façon aléatoire à chaque itération pour s'assurer que chaque neurone apprenne bien "par lui-même" (car sinon, on a un chemin précis avec des poids forts et les autres neurones n'ont rien appris), problème, ça ajoute du bruit à la prédiction.
+
+**Descente de gradient améliorée :** [[SGD]] + momentum
+$$v_{t+1}=\alpha v_t+(1-\alpha)\nabla E_{x_n}(W_t)$$
+$$W_{t+1}=W_t-\eta \ v_{t+1}$$

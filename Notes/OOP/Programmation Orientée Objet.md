@@ -7,3 +7,7 @@ La [[Programmation Orientée Objet|POO]] repose sur 6 principes :
 - [[Envoi de message]]
 - [[Héritage]]
 - [[Polymorphisme]] 
+
+---
+
+[[Approches Orientées Objet]]
