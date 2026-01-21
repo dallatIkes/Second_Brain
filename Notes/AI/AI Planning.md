@@ -24,3 +24,9 @@ ex: Théorie des jeux : jeu des 7 allumettes : MINMAX + $\alpha \beta$
 # [[MDP|Markov Decision Process]]
 
 ![[MDP]]
+
+---
+
+# [[RL|Apprentissage par renforcement]]
+
+![[RL]]
