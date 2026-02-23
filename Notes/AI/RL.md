@@ -5,7 +5,7 @@ aliases:
 ---
 ---
 
-L'[[RL|Apprentissage par renforcement]] fait référence au cas où l'[[agent]] doit apprendre à agir **seulement à partir des récompenses** : il agit, reçois un rétro-action (le renforcement) et son but est de maximiser les récompenses.
+L'[[RL|Apprentissage par renforcement]] fait référence au cas où l'[[agent]] doit apprendre à agir <u><strong>seulement à partir des récompenses</strong></u> : il agit, reçois un rétro-action (le renforcement) et son but est de maximiser les récompenses.
 
 # Apprentissage passif
 
@@ -24,8 +24,8 @@ On met à jour l'utilité d'un état à chaque essaie en fonction de l'essaie pr
 
 # Apprentissage actif
 
-L'[[agent]] essaie de **trouver une bonne politique** en agissant (similaire à résoudre un [[MDP]]
-Ici, il doit donc décider de quelle action effectuer.
+L'[[agent]] essaie de **trouver une bonne politique** en agissant (similaire à résoudre un [[MDP]]).
+Ici, il doit donc décider quelle action effectuer.
 
 ## PDA vorace
 
