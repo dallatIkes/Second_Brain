@@ -1,4 +1,4 @@
-# Interface Homme-Machine
+																																																																																																																																																																																																																				# Interface Homme-Machine
 
 > **“Good design is actually a lot harder to notice than poor design, in part because good designs fit our needs so well that the design is invisible,” - Don Norman** 
 
@@ -47,35 +47,9 @@ Explication de la façon dont un produit fonctionne. Souvent **inféré** par le
 
 ---
 
-# Théorie de la Gestalt
+![[Théorie de la Gestalt|Gestalt]]
 
-"Psychologie de la forme" en allemand. Théorie qui cherche à décrire la façon dont l'information est traitée par la conscience humaine à l'aide de plusieurs lois :  
-- **Loi de la bonne forme :** on perçoit d’abord une forme avant un ensemble d'éléments informes (ex: flèche faite de points)
-- **Loi du destin commun :** des parties en mouvements ayant la même trajectoire sont perçus comme un tout (ex: nuée d'oiseaux)
-- **Loi de proximité :** nous regroupons ensemble les éléments proches dans l'espace 
-- **Loi de clôture :** une forme fermée est plus facilement perçue comme une figure
-- **Loi de similitude :** tendance à regrouper les éléments qui se ressemblent 
-- **Loi de continuité :** tendance à regrouper les éléments qui s'harmonisent
-- **Loi de symétrie :** les régions entourées par des bordures symétriques sont perçues comme des figures
+![[Théorie de l'action]]
 
 ---
 
-# Théorie de l'action
-
-- **Fossé d'exécution :** Comment je peux intéragir avec le monde pour atteindre mon but ?
-- **Fossé d'évaluation :** Comprendre dans quel état est le monde après l'action
-Le but du concepteur est de réduire le plus possible les deux fossés pour l'utilisateur
-
-**Théorie de l'action :** 7 étapes de l'action :
-- **But :** Qu'est ce que je veux accomplir ?
-- **Planifier :** Quelles sont les possibilités ?
-- **Spécifier :** Qu'est ce que je peux faire ?
-- **Réaliser :** Comment je peux le faire ?
-- **Percevoir :** Que s'est-il passé ?
-- **Interpréter :** Qu'est ce que cela signifie ?
-- **Comparer :** Est-ce que cela correspond à mon but ?
-
-3 niveaux de traitement de l'information :
-- **Viscéral :** attraction ou répulsion (culturel, génétique)
-- **Comportemental :** représente les compétences acquises (acquis et devenu automatique)
-- **Réflexif :** cognition consciente
