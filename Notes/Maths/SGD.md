@@ -5,4 +5,5 @@ Elle utilise un sous ensemble aléatoire pour chaque mise à jour ce qui rend l'
 
 ![[Pasted image 20251218211141.png]]
 
-**Exemple d'utilisation :** ajuster les poids d'un [[Neural networks|réseau de neurones]] $$w\leftarrow w-\eta\Delta_wE$$
+**Exemple d'utilisation :** ajuster les poids d'un [[Neural networks|réseau de neurones]] 
+# $$W\leftarrow W-\eta\nabla_WE$$
