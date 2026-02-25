@@ -1,5 +1,7 @@
-																																																																																																																																																																																																																				# Interface Homme-Machine
-
+---
+aliases:
+  - Interface Homme-Machine
+---
 > **“Good design is actually a lot harder to notice than poor design, in part because good designs fit our needs so well that the design is invisible,” - Don Norman** 
 
 ---
@@ -53,3 +55,6 @@ Explication de la façon dont un produit fonctionne. Souvent **inféré** par le
 
 ---
 
+![[Conception Centrée sur l'Humain|CCH]]
+
+---
