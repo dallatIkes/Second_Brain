@@ -23,6 +23,8 @@ La **meilleur fonction discriminante** est celle qui **généralise la [[Classif
 
 La solution offrant le **maximum de marge** d’erreur peut être une bonne alternative pour une meilleure **généralisation**
 
+Fonction de coût : [[Hinge Loss]]
+
 ![[Pasted image 20251211170501.png]]
 
 ---
